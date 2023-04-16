@@ -2,6 +2,7 @@
 
 module.exports = {
     content: [
+        "./src/**/*.{js,ts,jsx,tsx}",
         "./pages/**/*.{js,ts,jsx,tsx}",
         "./app/**/*.{js,ts,jsx,tsx}",
         "./components/**/*.{js,ts,jsx,tsx}",
@@ -13,8 +14,9 @@ module.exports = {
         extend: {
             colors: {
                 primary: "#2463AC",
+                accent: "#57555D",
             },
         },
     },
-    plugins: [require("daisyui")],
+    plugins: [],
 };

@@ -1,7 +1,11 @@
-import { Inter } from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
+import AudienceBuilder from "@/components/Audience/AudienceBuilder/AudienceBuilder";
+import Header from "../../components/Layouts/Header";
 
 export default function Home() {
-    return <></>;
+  return (
+    <>
+      <Header />
+      <AudienceBuilder />
+    </>
+  );
 }
