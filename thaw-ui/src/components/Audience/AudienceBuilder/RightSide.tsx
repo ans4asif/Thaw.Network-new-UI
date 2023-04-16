@@ -87,38 +87,45 @@ const RightSide = () => {
             </tr>
           </thead>
           <tbody>
-            <tr className="bg-white border-b  hover:bg-gray-50 ">
-              <td className="w-4 p-4 border">
-                <div className="flex items-center">
-                  <input
-                    id="checkbox-table-search-1"
-                    type="checkbox"
-                    className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 "
-                  />
-                  <label htmlFor="checkbox-table-search-1" className="sr-only">
-                    checkbox
-                  </label>
-                </div>
-              </td>
-              <th
-                scope="row"
-                className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap"
-              >
-                <img
-                  className="w-10 h-10 rounded-full"
-                  src="/Frame 19.png"
-                  alt="Jese image"
-                />
-                <div className="pl-3">
-                  <div className="text-base font-semibold">Neil Sims</div>
-                </div>
-              </th>
-              <td className="px-6 py-4 border">Series D</td>
-              <td className="px-6 py-4 border">Venture Capitalists</td>
-              <td className="px-6 py-4 border"> E-Commerce</td>
-              <td className="px-6 py-4 border">$105,000</td>
-              <td className="px-6 py-4 border">$105,000</td>
-            </tr>
+            {[...Array(10)].map((item, i) => {
+              return (
+                <tr className="bg-white border-b  hover:bg-gray-50 ">
+                  <td className="w-4 p-4 border">
+                    <div className="flex items-center">
+                      <input
+                        id="checkbox-table-search-1"
+                        type="checkbox"
+                        className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 "
+                      />
+                      <label
+                        htmlFor="checkbox-table-search-1"
+                        className="sr-only"
+                      >
+                        checkbox
+                      </label>
+                    </div>
+                  </td>
+                  <th
+                    scope="row"
+                    className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap"
+                  >
+                    <img
+                      className="w-10 h-10 rounded-full"
+                      src="/Frame 19.png"
+                      alt="Jese image"
+                    />
+                    <div className="pl-3">
+                      <div className="text-base font-semibold">Neil Sims</div>
+                    </div>
+                  </th>
+                  <td className="px-6 py-4 border">Series D</td>
+                  <td className="px-6 py-4 border">Venture Capitalists</td>
+                  <td className="px-6 py-4 border"> E-Commerce</td>
+                  <td className="px-6 py-4 border">$105,000</td>
+                  <td className="px-6 py-4 border">$105,000</td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>
