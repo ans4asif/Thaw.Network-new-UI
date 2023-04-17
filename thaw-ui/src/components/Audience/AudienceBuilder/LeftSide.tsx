@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import s from './LeftSide.module.css'
+import s from "./LeftSide.module.css";
 
 const LeftSide = () => {
   const [employees, setEmployees] = useState<string>("1");
@@ -13,59 +13,61 @@ const LeftSide = () => {
       <hr className="my-5" />
       <form action="" className="flex flex-col gap-4">
         <div className="flex flex-col">
-          <label htmlFor="industry">Industry Preference</label>
-          <select
-            id="industry"
-            name="industry_preference"
-            className=" rounded-md px-2 py-1 placeholder:text-white"
-          >
-            <option value="volvo">Volvo XC90</option>
-            <option value="saab">Saab 95</option>
-            <option value="mercedes">Mercedes SLK</option>
-            <option value="audi">Audi TT</option>
+          <label className="label">
+            <span className="label-text">Industry Preference</span>
+          </label>
+          <select className="select select-bordered select-sm w-full max-w-xs">
+            <option disabled selected>
+              Select
+            </option>
+            <option>Tiny Apple</option>
+            <option>Tiny Orange</option>
+            <option>Tiny Tomato</option>
           </select>
         </div>
         <div className="flex flex-col">
-          <label htmlFor="industry">Investment Stage</label>
-          <select
-            id="industry"
-            name="industry_preference"
-            className="border border-[#57555D] rounded-md px-2 py-1"
-          >
-            <option value="volvo">Volvo XC90</option>
-            <option value="saab">Saab 95</option>
-            <option value="mercedes">Mercedes SLK</option>
-            <option value="audi">Audi TT</option>
+          <label className="label">
+            <span className="label-text">Investment Stage</span>
+          </label>
+          <select className="select select-bordered select-sm w-full max-w-xs">
+            <option disabled selected>
+              Select
+            </option>
+            <option>Tiny Apple</option>
+            <option>Tiny Orange</option>
+            <option>Tiny Tomato</option>
           </select>
         </div>
         <div className="flex flex-col">
-          <label htmlFor="industry">Industry Focus</label>
-          <select
-            id="industry"
-            name="industry_preference"
-            className="border border-[#57555D] rounded-md px-2 py-1"
-          >
-            <option value="volvo">Volvo XC90</option>
-            <option value="saab">Saab 95</option>
-            <option value="mercedes">Mercedes SLK</option>
-            <option value="audi">Audi TT</option>
+          <label className="label">
+            <span className="label-text">Industry Focus</span>
+          </label>
+          <select className="select select-bordered select-sm w-full max-w-xs">
+            <option disabled selected>
+              Select
+            </option>
+            <option>Tiny Apple</option>
+            <option>Tiny Orange</option>
+            <option>Tiny Tomato</option>
           </select>
         </div>
         <div className="flex flex-col">
-          <label htmlFor="industry">Geography</label>
-          <select
-            id="industry"
-            name="industry_preference"
-            className="border border-[#57555D] rounded-md px-2 py-1"
-          >
-            <option value="volvo">Volvo XC90</option>
-            <option value="saab">Saab 95</option>
-            <option value="mercedes">Mercedes SLK</option>
-            <option value="audi">Audi TT</option>
+          <label className="label">
+            <span className="label-text">Geography</span>
+          </label>
+          <select className="select select-bordered select-sm w-full max-w-xs">
+            <option disabled selected>
+              Select
+            </option>
+            <option>Tiny Apple</option>
+            <option>Tiny Orange</option>
+            <option>Tiny Tomato</option>
           </select>
         </div>
-        <div className={(s.input_range)}>
-          <label htmlFor="employees">Number of Employees:</label>
+        <div className={s.input_range}>
+          <label className="label">
+            <span className="label-text">Number of Employees:</span>
+          </label>
           <input
             type="range"
             id="employees"
@@ -74,15 +76,16 @@ const LeftSide = () => {
             max="10000"
             value={employees}
             onChange={(e) => setEmployees(e.target.value)}
-            
           />
-          <div className="flex justify-between w-full">
-            <label htmlFor="employees">{employees}</label>
-            <label htmlFor="employees">10,000+</label>
-          </div>
+          <label className="label">
+            <span className="label-text-alt">{employees}</span>
+            <span className="label-text-alt">10,000+</span>
+          </label>
         </div>
-        <div className={(s.input_range)}>
-          <label htmlFor="fund">Last Funding Round Amounts:</label>
+        <div className={s.input_range}>
+          <label className="label">
+            <span className="label-text">Last Funding Round Amounts:</span>
+          </label>
           <input
             type="range"
             id="fund"
@@ -91,12 +94,11 @@ const LeftSide = () => {
             max="100000000"
             value={fund}
             onChange={(e) => setFund(e.target.value)}
-            
           />
-          <div className="flex justify-between w-full">
-            <label htmlFor="fund">${fund}</label>
-            <label htmlFor="fund">$100,000,000</label>
-          </div>
+          <label className="label">
+            <span className="label-text-alt">${fund}</span>
+            <span className="label-text-alt">$100,000,000</span>
+          </label>
         </div>
       </form>
     </div>

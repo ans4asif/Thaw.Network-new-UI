@@ -1,14 +1,17 @@
-import DeleteModal from "@/components/DeleteView/DeleteView";
 import { useUI } from "@/components/ui/context";
 import Delete from "@/icons/Delete";
 import Plus from "@/icons/Plus";
-import React, { FC, useState } from "react";
+import React, { useState } from "react";
 
 const RightSide = () => {
   const [checked, setChecked] = useState<boolean>();
- 
-  const { openModal } = useUI()
-  
+
+  const { openModal, setModalView, closeModal } = useUI();
+
+  function modal(view: string) {
+    openModal()
+    setModalView(view)
+  }
   return (
     <>
       <div className="relative overflow-x-auto shadow-md border border-[#E4E3E7] w-full">
@@ -44,21 +47,24 @@ const RightSide = () => {
             <div className="text-accent">2,000,000+ results</div>
           </div>
           <div className="flex items-center gap-3">
-            <button
-            
-            className="border flex items-center justify-center rounded-lg w-9 h-9">
+            <button className="border flex items-center justify-center rounded-lg w-9 h-9"
+            onClick={() => modal('ADDAUDIENCE_VIEW')}
+            >
               <Plus />
             </button>
-            <button 
-            onClick={()=>openModal()}
-            disabled={!checked && true}
-            className="border flex items-center justify-center rounded-lg w-9 h-9 disabled:bg-[#E4E3E7] bg-white">
+            <button
+              onClick={() => modal('DELETE_VIEW')}
+              disabled={!checked && true}
+              className="border flex items-center justify-center rounded-lg w-9 h-9 disabled:bg-[#E4E3E7] bg-white"
+            >
               <Delete />
             </button>
             <hr className="w-[1px] h-9 rotate-180 bg-[#E4E3E7]" />
             <button
-            disabled={!checked && true}
-            className="bg-[#D14814] text-white py-1 px-3 rounded-lg w-[135px] h-9 disabled:bg-[#E4E3E7]">
+              disabled={!checked && true}
+              className="bg-[#D14814] text-white py-1 px-3 rounded-lg w-[135px] h-9 disabled:bg-[#E4E3E7]"
+              onClick={() => setModalView('ADDAUDIENCE_VIEW')}
+            >
               Build Audience
             </button>
           </div>
@@ -69,11 +75,7 @@ const RightSide = () => {
             <tr>
               <th scope="col" className="p-4 border">
                 <div className="flex items-center">
-                  <input
-                    id="checkbox-all-search"
-                    type="checkbox"
-                    className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 "
-                  />
+                  <input type="checkbox" className="checkbox" />
                   <label htmlFor="checkbox-all-search" className="sr-only">
                     checkbox
                   </label>
@@ -106,9 +108,8 @@ const RightSide = () => {
                   <td className="w-4 p-4 border">
                     <div className="flex items-center">
                       <input
-                        id="checkbox-table-search-1"
                         type="checkbox"
-                        className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 "
+                        className="checkbox"
                         onChange={(e) => setChecked(e.target.checked)}
                       />
                       <label

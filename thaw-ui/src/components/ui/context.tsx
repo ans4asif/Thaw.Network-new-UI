@@ -8,7 +8,7 @@ export interface State {
 
 const initialState = {
   displayModal: false,
-  modalView: 'DELETE_VIEW',
+  modalView: '',
 }
 
 type Action =
@@ -25,6 +25,7 @@ type Action =
 
 type MODAL_VIEWS =
   | 'DELETE_VIEW'
+  | 'ADDAUDIENCE_VIEW'
 
 export const UIContext = React.createContext<State | any>(initialState)
 

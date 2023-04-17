@@ -1,10 +1,11 @@
 'use client'
+import AddAudienceView from "@/components/AddAudienceView/AddAudienceView";
 import AudienceBuilder from "@/components/Audience/AudienceBuilder/AudienceBuilder";
 import { ManagedUIContext, useUI } from "@/components/ui/context";
 import LoadingDots from "@/components/ui/LoadingDots";
 import dynamic from "next/dynamic";
 import React from "react";
-
+import { Toaster } from 'react-hot-toast';
 function audience() {
   const Loading = () => (
     <div className="w-80 h-80 flex items-center text-center justify-center p-3">
@@ -29,6 +30,7 @@ function audience() {
     return (
       <Modal onClose={closeModal}>
         {modalView === 'DELETE_VIEW' && <DeleteView />}
+        {modalView === 'ADDAUDIENCE_VIEW' && <AddAudienceView />}
       </Modal>
     )
   }
@@ -44,6 +46,7 @@ function audience() {
       <ManagedUIContext>
         <AudienceBuilder />
         <ModalUI />
+        <Toaster />
       </ManagedUIContext>
     </>
   );
