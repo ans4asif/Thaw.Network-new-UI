@@ -1,8 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-<<<<<<< HEAD
-=======
 
 @layer components {
     .header-menu > .btn {
@@ -33,4 +31,3 @@
        font-display: swap;
        font-style: normal;
 }
->>>>>>> c3f8bf40285fff1ddc29af8dbefdbdeda8367f27
