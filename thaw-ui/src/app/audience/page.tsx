@@ -1,8 +1,11 @@
+import AudienceBuilder from '@/components/Audience/AudienceBuilder/AudienceBuilder'
 import React from 'react'
 
 function audience() {
   return (
-    <div>audience</div>
+    <div>
+      <AudienceBuilder />
+    </div>
   )
 }
 
