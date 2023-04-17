@@ -28,6 +28,7 @@ module.exports = {
                 "dashboard-text": "#57555D",
                 "green-text": "#306049",
                 "red-text": "#99202B",
+                "orange": "#D14814",
             },
         },
     },
