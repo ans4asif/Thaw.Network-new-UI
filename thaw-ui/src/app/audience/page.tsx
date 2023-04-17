@@ -1,6 +1,7 @@
 'use client'
 import AddAudienceView from "@/components/AddAudienceView/AddAudienceView";
 import AudienceBuilder from "@/components/Audience/AudienceBuilder/AudienceBuilder";
+import BuildAudienceView from "@/components/BuildAudienceView/BuildAudienceView";
 import { ManagedUIContext, useUI } from "@/components/ui/context";
 import LoadingDots from "@/components/ui/LoadingDots";
 import dynamic from "next/dynamic";
@@ -31,6 +32,7 @@ function audience() {
       <Modal onClose={closeModal}>
         {modalView === 'DELETE_VIEW' && <DeleteView />}
         {modalView === 'ADDAUDIENCE_VIEW' && <AddAudienceView />}
+        {modalView === 'BUILDAUDIENCE_VIEW' && <BuildAudienceView />}
       </Modal>
     )
   }

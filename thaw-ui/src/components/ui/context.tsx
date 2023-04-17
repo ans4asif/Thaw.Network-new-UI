@@ -26,6 +26,7 @@ type Action =
 type MODAL_VIEWS =
   | 'DELETE_VIEW'
   | 'ADDAUDIENCE_VIEW'
+  | 'BUILDAUDIENCE_VIEW'
 
 export const UIContext = React.createContext<State | any>(initialState)
 

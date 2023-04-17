@@ -6,7 +6,7 @@ const AddAudienceView = () => {
   const { closeModal } = useUI();
   const notify = () => {
     closeModal();
-    toast.success("Company removed from Audience.");
+    toast.success("Add Audience Successfully.");
   };
 
   return (
@@ -15,12 +15,9 @@ const AddAudienceView = () => {
         <h3 className="mb-5 text-lg font-bold text-gray-500">
           Add to Audience
         </h3>
-        <h3 className="mb-5 text-lg font-normal text-gray-500 text-center">
-          Select Existing Audience to Add to
-        </h3>
-        <div className="flex flex-col">
+        <div className="flex flex-col mb-5">
           <label className="label">
-            <span className="label-text">Geography</span>
+            <span className="label-text">Select Existing Audience to Add to</span>
           </label>
           <select className="select select-bordered select-sm w-full max-w-xs">
             <option disabled selected>
@@ -39,7 +36,7 @@ const AddAudienceView = () => {
             className="bg-red-600 btn btn-sm border-none text-white"
             onClick={notify}
           >
-            Remove
+            Add
           </button>
         </div>
       </div>

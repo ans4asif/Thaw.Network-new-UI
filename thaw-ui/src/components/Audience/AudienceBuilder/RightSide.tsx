@@ -63,7 +63,7 @@ const RightSide = () => {
             <button
               disabled={!checked && true}
               className="bg-[#D14814] text-white py-1 px-3 rounded-lg w-[135px] h-9 disabled:bg-[#E4E3E7]"
-              onClick={() => setModalView('ADDAUDIENCE_VIEW')}
+              onClick={() => modal('BUILDAUDIENCE_VIEW')}
             >
               Build Audience
             </button>
