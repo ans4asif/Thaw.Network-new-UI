@@ -6,8 +6,11 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
 
-    // Path to the tremor module
+    // // Path to the tremor module
     "./node_modules/@tremor/**/*.{js,ts,jsx,tsx}",
+
+    //
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
