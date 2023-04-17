@@ -2,6 +2,7 @@
 
 module.exports = {
     content: [
+        "./src/**/*.{js,ts,jsx,tsx}",
         "./pages/**/*.{js,ts,jsx,tsx}",
         "./app/**/*.{js,ts,jsx,tsx}",
         "./src/app/**/*.{js,ts,jsx,tsx}",
@@ -17,6 +18,7 @@ module.exports = {
             },
             colors: {
                 primary: "#2463AC",
+                accent: "#57555D",
                 secondery: "#DFFAE8",
                 "lite-red": "#FFF4F5",
                 "primary-border": "#368FCF",
@@ -28,7 +30,7 @@ module.exports = {
                 "dashboard-text": "#57555D",
                 "green-text": "#306049",
                 "red-text": "#99202B",
-            },
+ },
         },
     },
     plugins: [require("daisyui")],
