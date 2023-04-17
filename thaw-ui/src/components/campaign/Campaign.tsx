@@ -1,6 +1,7 @@
 import React from "react";
 import icon from "../../assets/Icon.png";
 import Image from "next/image";
+import CreateCampaign from "./CreateCampaign";
 
 const Campaign = () => {
   return (
@@ -15,10 +16,15 @@ const Campaign = () => {
         <Image src={icon} alt="" />
         <h4 className="font-medium text-[20px]">No Campaigns Yet!</h4>
         <p className="text-[14px] text-[#3A383E]">Start Your Campaign now</p>
-        <button className="btn mt-4 normal-case text-base bg-[#D14814]">
+
+        <label
+          htmlFor="create-campaign"
+          className="btn mt-4 normal-case text-base bg-[#D14814]"
+        >
           New Campaign
-        </button>
+        </label>
       </div>
+      <CreateCampaign />
     </div>
   );
 };
