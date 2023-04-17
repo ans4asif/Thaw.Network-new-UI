@@ -2,11 +2,17 @@ import React from 'react'
 import Image from 'next/image'
 import avatar from '../../../assets/images/avatar.png'
 import logo from '../../../assets/images/logo.png'
+import Link from '@/components/atoms/Link'
+
 const NavBar = () => {
   return (
     <div className="navbar bg-blue min-h-0 max-h-11 overflow-y-hidden">
   <div className="flex-1">
     <a className="btn btn-ghost normal-case text-xl"><Image src={logo} alt='logo'/></a>
+  </div>
+  <div>
+    <Link href='/' icon='insert_chart'>Dashboard</Link>
+    <Link href='/campaigns' icon='insert_chart'>Campaigns</Link>
   </div>
   <div className="flex-none">
     <div className="dropdown dropdown-end">
