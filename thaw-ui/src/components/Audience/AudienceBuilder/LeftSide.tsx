@@ -3,7 +3,7 @@ import s from './LeftSide.module.css'
 
 const LeftSide = () => {
   const [employees, setEmployees] = useState<string>("1");
-  const [fund, setFund] = useState<string>("10,000");
+  const [fund, setFund] = useState<string>("10000");
   return (
     <div className=" p-4 isolate border">
       <div className="flex justify-between mb-5">
@@ -95,7 +95,7 @@ const LeftSide = () => {
           />
           <div className="flex justify-between w-full">
             <label htmlFor="fund">${fund}</label>
-            <label htmlFor="fund">$100,000,000.000</label>
+            <label htmlFor="fund">$100,000,000</label>
           </div>
         </div>
       </form>
