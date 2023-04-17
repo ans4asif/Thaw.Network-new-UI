@@ -11,9 +11,9 @@ const Plus = ({...props}) => {
       <path
         d="M7.00002 1.1665V12.8332M1.16669 6.99984H12.8334"
         stroke="#CFCED4"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );

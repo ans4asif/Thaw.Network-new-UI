@@ -1,8 +1,9 @@
 import Delete from "@/icons/Delete";
 import Plus from "@/icons/Plus";
-import React from "react";
+import React, { FC, useState } from "react";
 
 const RightSide = () => {
+  const [checked, setChecked] = useState<boolean>(false)
   return (
     <>
       <div className="relative overflow-x-auto shadow-md border border-[#E4E3E7] w-full">
@@ -22,9 +23,9 @@ const RightSide = () => {
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    fill-rule="evenodd"
+                    fillRule="evenodd"
                     d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                    clip-rule="evenodd"
+                    clipRule="evenodd"
                   ></path>
                 </svg>
               </div>
@@ -32,20 +33,26 @@ const RightSide = () => {
                 type="text"
                 id="table-search"
                 className="block p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
-                placeholder="Search for items"
+                placeholder="Search companies..."
               />
             </div>
             <div className="text-accent">2,000,000+ results</div>
           </div>
           <div className="flex items-center gap-3">
-            <button className="border p-2 rounded-lg w-9 h-9">
+            <button
+            
+            className="border flex items-center justify-center rounded-lg w-9 h-9">
               <Plus />
             </button>
-            <button className="border p-2 rounded-lg h-9">
+            <button 
+            disabled={!checked && true}
+            className="border flex items-center justify-center rounded-lg w-9 h-9 disabled:bg-[#E4E3E7] bg-white">
               <Delete />
             </button>
             <hr className="w-[1px] h-9 rotate-180 bg-[#E4E3E7]" />
-            <button className="bg-[#E4E3E7] py-1 px-3 rounded-lg w-[135px] h-9">
+            <button
+            disabled={!checked && true}
+            className="bg-[#D14814] text-white py-1 px-3 rounded-lg w-[135px] h-9 disabled:bg-[#E4E3E7]">
               Build Audience
             </button>
           </div>
@@ -89,13 +96,14 @@ const RightSide = () => {
           <tbody>
             {[...Array(10)].map((item, i) => {
               return (
-                <tr className="bg-white border-b  hover:bg-gray-50 ">
+                <tr key={i} className="bg-white border-b  hover:bg-gray-50 ">
                   <td className="w-4 p-4 border">
                     <div className="flex items-center">
                       <input
                         id="checkbox-table-search-1"
                         type="checkbox"
                         className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 "
+                        onChange={(e) => setChecked(e.target.checked)}
                       />
                       <label
                         htmlFor="checkbox-table-search-1"
