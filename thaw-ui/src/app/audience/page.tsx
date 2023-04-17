@@ -1,6 +1,6 @@
+'use client'
 import AudienceBuilder from "@/components/Audience/AudienceBuilder/AudienceBuilder";
-import DeleteModal from "@/components/DeleteView/DeleteView";
-import { ManagedUIContext } from "@/components/ui/context";
+import { ManagedUIContext, useUI } from "@/components/ui/context";
 import LoadingDots from "@/components/ui/LoadingDots";
 import dynamic from "next/dynamic";
 import React from "react";
@@ -18,24 +18,32 @@ function audience() {
     ...dynamicProps,
     ssr: false,
   })
-  // const SignUpView = dynamic(() => import('@components/auth/SignUpView'), {
-  //   ...dynamicProps,
-  // })
+  const DeleteView = dynamic(() => import('@/components/DeleteView/DeleteView'), {
+    ...dynamicProps,
+  })
+  
   const ModalView: React.FC<{ modalView: string; closeModal(): any }> = ({
     modalView,
     closeModal,
   }) => {
     return (
       <Modal onClose={closeModal}>
-        {modalView === 'DELETE_VIEW' && <DeleteModal />}
+        {modalView === 'DELETE_VIEW' && <DeleteView />}
       </Modal>
     )
+  }
+  const ModalUI: React.FC = () => {
+    const { displayModal, closeModal, modalView } = useUI()
+    return displayModal ? (
+      <ModalView modalView={modalView} closeModal={closeModal} />
+    ) : null
   }
   
   return (
     <>
       <ManagedUIContext>
         <AudienceBuilder />
+        <ModalUI />
       </ManagedUIContext>
     </>
   );

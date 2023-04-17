@@ -8,6 +8,7 @@ const RightSide = () => {
   const [checked, setChecked] = useState<boolean>();
  
   const { openModal } = useUI()
+  
   return (
     <>
       <div className="relative overflow-x-auto shadow-md border border-[#E4E3E7] w-full">
