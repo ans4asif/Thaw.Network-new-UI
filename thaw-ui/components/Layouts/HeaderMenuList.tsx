@@ -11,7 +11,7 @@ interface MenuItem {
 }
 
 export const HeaderMenuList: MenuItem[] = [
-    { name: "Dashboard", link: "/", icon: <DashboardSvg className="stroke-inactive-menu" /> },
+    { name: "Dashboard", link: "/", icon: <DashboardSvg className="stroke-active-menu" /> },
     { name: "Audience Builder", link: "/audience", icon: <AudienceSvg className="stroke-inactive-menu" /> },
     { name: "Campaigns", link: "/campaign", icon: <CampaignsSvg className="stroke-inactive-menu" /> },
     { name: "Pitch Deck", link: "/pitch-deck", icon: <PitchDeckSvg className="stroke-inactive-menu" /> },

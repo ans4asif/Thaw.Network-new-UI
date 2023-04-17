@@ -1,9 +1,5 @@
 import Link from "next/link";
-import DashboardSvg from "../Svg/HeaderMenuSvg/DashboardSvg";
-import AudienceSvg from "../Svg/HeaderMenuSvg/AudienceSvg";
-import CampaignsSvg from "../Svg/HeaderMenuSvg/CampaignsSvg";
-import PitchDeckSvg from "../Svg/HeaderMenuSvg/PitchDeckSvg";
-import MeetingsSvg from "../Svg/HeaderMenuSvg/MeetingsSvg";
+
 
 interface Props {
     title: string;
@@ -22,7 +18,6 @@ const HeaderMenuCard: React.FC<Props> = ({ title, icon, link, active }) => {
                         : "hover:border-b-2 hover:border-active-menu hover:bg-[#1C487C]"
                 } flex items-center gap-2 px-4 h-11`}
             >
-                {/* {`<{icon} className="stroke-inactive-menu" />`} */}
                 <div>{icon}</div>
                 <div>{title}</div>
             </li>
