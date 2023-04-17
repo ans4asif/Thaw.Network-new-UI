@@ -17,7 +17,7 @@ const LeftSide = () => {
           <select
             id="industry"
             name="industry_preference"
-            className="border border-[#57555D] rounded-md px-2 py-1"
+            className=" rounded-md px-2 py-1 placeholder:text-white"
           >
             <option value="volvo">Volvo XC90</option>
             <option value="saab">Saab 95</option>

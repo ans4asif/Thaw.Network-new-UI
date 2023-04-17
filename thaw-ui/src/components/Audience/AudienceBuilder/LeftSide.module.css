@@ -2,7 +2,6 @@
   @apply flex flex-col;
 }
 .input_range input[type="range" i] {
-  height: 26px;
   -webkit-appearance: none !important;
   appearance: none !important;
   margin: 10px 0;

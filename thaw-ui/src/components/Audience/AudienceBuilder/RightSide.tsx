@@ -1,11 +1,13 @@
+import DeleteModal from "@/components/DeleteView/DeleteView";
+import { useUI } from "@/components/ui/context";
 import Delete from "@/icons/Delete";
 import Plus from "@/icons/Plus";
 import React, { FC, useState } from "react";
 
 const RightSide = () => {
   const [checked, setChecked] = useState<boolean>();
-  const [isDelete, setIsDelete] = useState(false)
-  console.log(isDelete)
+ 
+  const { openModal } = useUI()
   return (
     <>
       <div className="relative overflow-x-auto shadow-md border border-[#E4E3E7] w-full">
@@ -47,7 +49,7 @@ const RightSide = () => {
               <Plus />
             </button>
             <button 
-            onClick={(isDelete)=>setIsDelete(!isDelete)}
+            onClick={()=>openModal()}
             disabled={!checked && true}
             className="border flex items-center justify-center rounded-lg w-9 h-9 disabled:bg-[#E4E3E7] bg-white">
               <Delete />
