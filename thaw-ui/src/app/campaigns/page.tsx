@@ -1,11 +1,13 @@
+"use client";
+
 import React from "react";
 import icon from "../../assets/Icon.png";
 import Image from "next/image";
-import CreateCampaign from "./CreateCampaign/CreateCampaign";
+import CreateCampaign from "@/components/campaign/CreateCampaign/CreateCampaign";
 
 const Campaign = () => {
   return (
-    <div className="px-[32px] ">
+    <div className="px-[32px] bg-white">
       <div className="my-5">
         <h4 className="text-[22px] font-semibold">Campaigns</h4>
         <p className="text-[#3A383E] text-sm font-normal">
