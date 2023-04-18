@@ -1,7 +1,7 @@
 import React from "react";
 import icon from "../../assets/Icon.png";
 import Image from "next/image";
-import CreateCampaign from "./CreateCampaign";
+import CreateCampaign from "./CreateCampaign/CreateCampaign";
 
 const Campaign = () => {
   return (
