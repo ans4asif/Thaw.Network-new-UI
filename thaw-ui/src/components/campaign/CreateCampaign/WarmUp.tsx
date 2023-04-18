@@ -175,6 +175,45 @@ const WarmUp = () => {
         </div>
       )}
 
+      {twitterPosterCheck && (
+        <div>
+          <div className="flex items-center gap-2 text-[#2463AC] my-5">
+            <FiDownload />{" "}
+            <p className="font-medium text-base ">Download CSV template </p>
+          </div>
+
+          <div className="my-6 ">
+            <p className="font-medium mb-3">Posting cadence</p>
+            <div className="grid grid-cols-3 lg:grid-cols-6 gap-3">
+              <div className=" flex items-center gap-2 border border-[#CFCED4] px-3 py-2">
+                <input
+                  type="radio"
+                  name="radio-10"
+                  className="radio checked:bg-blue-500 radio-sm"
+                />
+                <p className="font-medium text-sm">3 per day</p>
+              </div>
+              <div className="flex items-center gap-2 border border-[#CFCED4] px-3 py-2 ">
+                <input
+                  type="radio"
+                  name="radio-10"
+                  className="radio checked:bg-blue-500 radio-sm"
+                />
+                <p className="font-medium text-sm">2 per day</p>
+              </div>
+              <div className="flex items-center gap-2 border border-[#CFCED4] px-3 py-2 ">
+                <input
+                  type="radio"
+                  name="radio-10"
+                  className="radio checked:bg-blue-500 radio-sm"
+                />
+                <p className="font-medium text-sm">1 per day</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/*  */}
 
       <div className="divider"></div>
