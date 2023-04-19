@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import LinkStageCampaigns from "./LinkStageCampaigns";
 
-const Connect = () => {
+const Connect = ({ onRequiredRadioChange }: any) => {
   const [radioCheck, setRadioCheck] = useState(false);
+  const [message, setMessage] = useState("");
 
   const [linkedConnectCheck, setLinkedConnectCheck] = useState(false);
   const [linkedConnectReqCheck, setLinkedConnectReqCheck] = useState(false);
@@ -13,6 +14,20 @@ const Connect = () => {
     setRadioCheck(targetName === "radio-1");
     setLinkedConnectCheck(targetName === "linked-connect");
     setLinkedConnectReqCheck(targetName === "linkedIn-connect-req");
+
+    if (
+      targetName === "radio-1" ||
+      targetName === "linked-connect" ||
+      targetName === "linkedIn-connect-req"
+    ) {
+      onRequiredRadioChange(true);
+    } else {
+      onRequiredRadioChange(false);
+    }
+  };
+
+  const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    setMessage(e.currentTarget.innerText);
   };
 
   return (
@@ -68,6 +83,8 @@ const Connect = () => {
             <textarea
               className="textarea textarea-bordered h-24"
               placeholder="Type something..."
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
             ></textarea>
             <label className="cursor-pointer text-[#2463AC] font-medium">
               Re-write using AI
@@ -75,28 +92,43 @@ const Connect = () => {
 
             {/*  */}
             <div className="mt-3 flex flex-col gap-2">
-              <div className="bg-[#F5FBFD] p-2">
+              <div
+                onClick={handleClick}
+                className="bg-[#F5FBFD] p-2 cursor-pointer"
+              >
                 Lorem ipsum dolor sit amet consectetur. Lobortis consequat
                 congue feugiat congue dolor nisl. Orci felis velit penatibus
                 tellus ut morbi nulla venenatis. Tellus viverra tincidunt dui
                 rhoncus enim.
               </div>
-              <div className="bg-[#F5FBFD] p-2">
+              <div
+                onClick={handleClick}
+                className="bg-[#F5FBFD] p-2 cursor-pointer"
+              >
                 Lorem ipsum dolor sit amet consectetur. Lobortis consequat
                 congue feugiat congue dolor nisl. Orci felis velit penatibus
                 tellus ut
               </div>
-              <div className="bg-[#F5FBFD] p-2">
+              <div
+                onClick={handleClick}
+                className="bg-[#F5FBFD] p-2 cursor-pointer"
+              >
                 Lorem ipsum dolor sit amet consectetur. Lobortis consequat
                 congue feugiat congue dolor nisl. Orci felis velit penatibus
                 tellus ut
               </div>
-              <div className="bg-[#F5FBFD] p-2">
+              <div
+                onClick={handleClick}
+                className="bg-[#F5FBFD] p-2 cursor-pointer"
+              >
                 Lorem ipsum dolor sit amet consectetur. Lobortis consequat
                 congue feugiat congue dolor nisl. Orci felis velit penatibus
                 tellus ut
               </div>
-              <div className="bg-[#F5FBFD] p-2">
+              <div
+                onClick={handleClick}
+                className="bg-[#F5FBFD] p-2 cursor-pointer"
+              >
                 Lorem ipsum dolor sit amet consectetur. Lobortis consequat
                 congue feugiat congue dolor nisl. Orci felis velit penatibus
                 tellus ut

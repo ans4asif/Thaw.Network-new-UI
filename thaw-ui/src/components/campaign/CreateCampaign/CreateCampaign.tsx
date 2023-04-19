@@ -14,6 +14,8 @@ const CreateCampaign = () => {
   const [scheduleMeetingCheck, setScheduleMeetingCheck] = useState(false);
   const [investorOnboardingCheck, setInvestorOnboardingCheck] = useState(false);
 
+  const [requiredRadioChecked, setRequiredRadioChecked] = useState(false);
+
   const handleRadioChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const targetName = e.target.name;
 
@@ -114,8 +116,12 @@ const CreateCampaign = () => {
           </div>
 
           {/*  */}
-          {warmUpCheck && <WarmUp />}
-          {connectCheck && <Connect />}
+          {warmUpCheck && (
+            <WarmUp onRequiredRadioChange={setRequiredRadioChecked} />
+          )}
+          {connectCheck && (
+            <Connect onRequiredRadioChange={setRequiredRadioChecked} />
+          )}
           {outReachCheck && <OutReach />}
 
           <div className="modal-action ">
@@ -130,12 +136,12 @@ const CreateCampaign = () => {
             >
               Cancel
             </label>
-            <label
-              htmlFor="create-campaign"
+            <button
+              disabled={!requiredRadioChecked}
               className="btn normal-case bg-[#D14814]"
             >
               Create
-            </label>
+            </button>
           </div>
         </div>
       </div>

@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { FiDownload } from "react-icons/fi";
 import LinkStageCampaigns from "./LinkStageCampaigns";
 
-const WarmUp = () => {
+const WarmUp = ({ onRequiredRadioChange }: any) => {
   const [twitterLikerCheck, setTwitterLikerCheck] = useState(false);
   const [linkedLikerCheck, setLinkedInLikerCheck] = useState(false);
   const [linkedInProfileViewCheck, setLinkedInProfileViewCheck] =
@@ -27,6 +27,21 @@ const WarmUp = () => {
     setTwitterAiCommenterCheck(targetName === "twitter-AiCommenter");
     setLinkedInPosterCheck(targetName === "linkedIn-poster");
     setTwitterPosterCheck(targetName === "twitter-poster");
+
+    if (
+      targetName === "twitter-liker" ||
+      targetName === "linked-liker" ||
+      targetName === "linkedIn-profile-view" ||
+      targetName === "twitter-reTweeter" ||
+      targetName === "linkedIn-AiCommenter" ||
+      targetName === "twitter-AiCommenter" ||
+      targetName === "linkedIn-poster" ||
+      targetName === "twitter-poster"
+    ) {
+      onRequiredRadioChange(true);
+    } else {
+      onRequiredRadioChange(false);
+    }
   };
 
   return (

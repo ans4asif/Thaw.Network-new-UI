@@ -3,6 +3,7 @@ import LinkStageCampaigns from "./LinkStageCampaigns";
 
 const OutReach = () => {
   const [linkedEvenInviteCheck, setLinkedEvenInviteCheck] = useState(false);
+  const [message, setMessage] = useState("");
 
   const [linkedMsg, setLinkedMsg] = useState(false);
   const [twitterMsgCheck, setTwitterMsgCheck] = useState(false);
@@ -13,6 +14,10 @@ const OutReach = () => {
     setLinkedEvenInviteCheck(targetName === "linked-invitation");
     setLinkedMsg(targetName === "linked-msg");
     setTwitterMsgCheck(targetName === "twitter-msg");
+  };
+
+  const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    setMessage(e.currentTarget.innerText);
   };
 
   return (
@@ -81,6 +86,8 @@ const OutReach = () => {
             <textarea
               className="textarea textarea-bordered h-24"
               placeholder="Type something..."
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
             ></textarea>
             <label className="cursor-pointer text-[#2463AC] font-medium">
               Re-write using AI
@@ -88,28 +95,43 @@ const OutReach = () => {
 
             {/*  */}
             <div className="mt-3 flex flex-col gap-2">
-              <div className="bg-[#F5FBFD] p-2">
+              <div
+                onClick={handleClick}
+                className="bg-[#F5FBFD] p-2 cursor-pointer"
+              >
                 Lorem ipsum dolor sit amet consectetur. Lobortis consequat
                 congue feugiat congue dolor nisl. Orci felis velit penatibus
                 tellus ut morbi nulla venenatis. Tellus viverra tincidunt dui
                 rhoncus enim.
               </div>
-              <div className="bg-[#F5FBFD] p-2">
+              <div
+                onClick={handleClick}
+                className="bg-[#F5FBFD] p-2 cursor-pointer"
+              >
                 Lorem ipsum dolor sit amet consectetur. Lobortis consequat
                 congue feugiat congue dolor nisl. Orci felis velit penatibus
                 tellus ut
               </div>
-              <div className="bg-[#F5FBFD] p-2">
+              <div
+                onClick={handleClick}
+                className="bg-[#F5FBFD] p-2 cursor-pointer"
+              >
                 Lorem ipsum dolor sit amet consectetur. Lobortis consequat
                 congue feugiat congue dolor nisl. Orci felis velit penatibus
                 tellus ut
               </div>
-              <div className="bg-[#F5FBFD] p-2">
+              <div
+                onClick={handleClick}
+                className="bg-[#F5FBFD] p-2 cursor-pointer"
+              >
                 Lorem ipsum dolor sit amet consectetur. Lobortis consequat
                 congue feugiat congue dolor nisl. Orci felis velit penatibus
                 tellus ut
               </div>
-              <div className="bg-[#F5FBFD] p-2">
+              <div
+                onClick={handleClick}
+                className="bg-[#F5FBFD] p-2 cursor-pointer"
+              >
                 Lorem ipsum dolor sit amet consectetur. Lobortis consequat
                 congue feugiat congue dolor nisl. Orci felis velit penatibus
                 tellus ut
