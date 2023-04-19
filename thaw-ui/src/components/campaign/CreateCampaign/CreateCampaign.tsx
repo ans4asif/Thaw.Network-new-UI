@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { RxCross1 } from "react-icons/rx";
 import WarmUp from "./WarmUp";
 import Connect from "./Connect";
+import OutReach from "./OutReach";
 
 const CreateCampaign = () => {
   const [warmUpCheck, setWarmUpCheck] = useState(false);
@@ -115,6 +116,7 @@ const CreateCampaign = () => {
           {/*  */}
           {warmUpCheck && <WarmUp />}
           {connectCheck && <Connect />}
+          {outReachCheck && <OutReach />}
 
           <div className="modal-action ">
             <label htmlFor="create-campaign">
