@@ -3,6 +3,8 @@
 import React, { useState } from "react";
 import { RxCross1 } from "react-icons/rx";
 import WarmUp from "./WarmUp";
+import Connect from "./Connect";
+import OutReach from "./OutReach";
 
 const CreateCampaign = () => {
   const [warmUpCheck, setWarmUpCheck] = useState(false);
@@ -12,15 +14,17 @@ const CreateCampaign = () => {
   const [scheduleMeetingCheck, setScheduleMeetingCheck] = useState(false);
   const [investorOnboardingCheck, setInvestorOnboardingCheck] = useState(false);
 
+  const [requiredRadioChecked, setRequiredRadioChecked] = useState(false);
+
   const handleRadioChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const targetName = e.target.name;
 
-    setWarmUpCheck(targetName === "radio-10-warm-up");
-    setConnectCheck(targetName === "radio-10-connect");
-    setOutReachCheck(targetName === "radio-10-outreach");
-    setPitchDeckCheck(targetName === "radio-10-pitch-deck");
-    setScheduleMeetingCheck(targetName === "radio-10-schedule-meeting");
-    setInvestorOnboardingCheck(targetName === "radio-10-investor-onboarding");
+    setWarmUpCheck(targetName === "warm-up");
+    setConnectCheck(targetName === "connect");
+    setOutReachCheck(targetName === "outreach");
+    setPitchDeckCheck(targetName === "pitch-deck");
+    setScheduleMeetingCheck(targetName === "schedule-meeting");
+    setInvestorOnboardingCheck(targetName === "investor-onboarding");
   };
 
   return (
@@ -51,7 +55,7 @@ const CreateCampaign = () => {
               <div className=" flex items-center gap-2 border border-[#CFCED4] px-3 py-2">
                 <input
                   type="radio"
-                  name="radio-10-warm-up"
+                  name="warm-up"
                   className="radio checked:bg-blue-500 radio-sm"
                   checked={warmUpCheck}
                   onChange={handleRadioChange}
@@ -61,7 +65,7 @@ const CreateCampaign = () => {
               <div className="flex items-center gap-2 border border-[#CFCED4] px-3 py-2 ">
                 <input
                   type="radio"
-                  name="radio-10-connect"
+                  name="connect"
                   className="radio checked:bg-blue-500 radio-sm"
                   checked={connectCheck}
                   onChange={handleRadioChange}
@@ -71,7 +75,7 @@ const CreateCampaign = () => {
               <div className=" flex items-center gap-2 border border-[#CFCED4] px-3 py-2">
                 <input
                   type="radio"
-                  name="radio-10-outreach"
+                  name="outreach"
                   className="radio checked:bg-blue-500 radio-sm"
                   checked={outReachCheck}
                   onChange={handleRadioChange}
@@ -81,7 +85,7 @@ const CreateCampaign = () => {
               <div className="flex items-center gap-2 border border-[#CFCED4] px-3 py-2">
                 <input
                   type="radio"
-                  name="radio-10-pitch-deck"
+                  name="pitch-deck"
                   className="radio checked:bg-blue-500 radio-sm"
                   checked={pitchDeckCheck}
                   onChange={handleRadioChange}
@@ -91,7 +95,7 @@ const CreateCampaign = () => {
               <div className="flex items-center gap-2 border border-[#CFCED4] px-3 py-2">
                 <input
                   type="radio"
-                  name="radio-10-schedule-meeting"
+                  name="schedule-meeting"
                   className="radio checked:bg-blue-500 radio-sm"
                   checked={scheduleMeetingCheck}
                   onChange={handleRadioChange}
@@ -101,7 +105,7 @@ const CreateCampaign = () => {
               <div className="flex items-center gap-2 border border-[#CFCED4] px-3 py-2">
                 <input
                   type="radio"
-                  name="radio-10-investor-onboarding"
+                  name="investor-onboarding"
                   className="radio checked:bg-blue-500 radio-sm"
                   checked={investorOnboardingCheck}
                   onChange={handleRadioChange}
@@ -112,7 +116,13 @@ const CreateCampaign = () => {
           </div>
 
           {/*  */}
-          {warmUpCheck && <WarmUp />}
+          {warmUpCheck && (
+            <WarmUp onRequiredRadioChange={setRequiredRadioChecked} />
+          )}
+          {connectCheck && (
+            <Connect onRequiredRadioChange={setRequiredRadioChecked} />
+          )}
+          {outReachCheck && <OutReach />}
 
           <div className="modal-action ">
             <label htmlFor="create-campaign">
@@ -126,12 +136,12 @@ const CreateCampaign = () => {
             >
               Cancel
             </label>
-            <label
-              htmlFor="create-campaign"
+            <button
+              disabled={!requiredRadioChecked}
               className="btn normal-case bg-[#D14814]"
             >
               Create
-            </label>
+            </button>
           </div>
         </div>
       </div>
