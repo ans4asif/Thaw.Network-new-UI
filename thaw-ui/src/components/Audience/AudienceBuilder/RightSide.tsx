@@ -3,14 +3,18 @@ import Delete from "@/icons/Delete";
 import Plus from "@/icons/Plus";
 import React, { useState } from "react";
 
-const RightSide = () => {
+interface props {
+  isFinPeople?: boolean;
+}
+
+const RightSide: React.FunctionComponent<props> = ({ isFinPeople }) => {
   const [checked, setChecked] = useState<boolean>();
 
   const { openModal, setModalView, closeModal } = useUI();
 
   function modal(view: string) {
-    openModal()
-    setModalView(view)
+    openModal();
+    setModalView(view);
   }
   return (
     <>
@@ -40,20 +44,21 @@ const RightSide = () => {
               <input
                 type="text"
                 id="table-search"
-                className="block p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
+                className="block p-2 pl-10 text-sm text-black border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
                 placeholder="Search companies..."
               />
             </div>
-            <div className="text-accent">2,000,000+ results</div>
+            <div className="text-accent text-sm">2,000,000+ results</div>
           </div>
           <div className="flex items-center gap-3">
-            <button className="border flex items-center justify-center rounded-lg w-9 h-9"
-            onClick={() => modal('ADDAUDIENCE_VIEW')}
+            <button
+              className="border flex items-center justify-center rounded-lg w-9 h-9"
+              onClick={() => modal("ADDAUDIENCE_VIEW")}
             >
               <Plus />
             </button>
             <button
-              onClick={() => modal('DELETE_VIEW')}
+              onClick={() => modal("DELETE_VIEW")}
               disabled={!checked && true}
               className="border flex items-center justify-center rounded-lg w-9 h-9 disabled:bg-[#E4E3E7] bg-white"
             >
@@ -63,15 +68,15 @@ const RightSide = () => {
             <button
               disabled={!checked && true}
               className="bg-[#D14814] text-white py-1 px-3 rounded-lg w-[135px] h-9 disabled:bg-[#E4E3E7]"
-              onClick={() => modal('BUILDAUDIENCE_VIEW')}
+              onClick={() => modal("BUILDAUDIENCE_VIEW")}
             >
               Build Audience
             </button>
           </div>
         </div>
         {/* Body */}
-        <table className="w-full text-sm text-left text-gray-500">
-          <thead className="text-xs text-gray-700 uppercase bg-[#F9F9FA] border-b border-[#E4E3E7] ">
+        <table className="w-full text-sm text-left text-black">
+          <thead className="text-xs text-black uppercase bg-[#F9F9FA] border-b border-[#E4E3E7] ">
             <tr>
               <th scope="col" className="p-4 border">
                 <div className="flex items-center">
@@ -81,28 +86,74 @@ const RightSide = () => {
                   </label>
                 </div>
               </th>
-              <th scope="col" className="px-6 py-3 border">
+              <th
+                scope="col"
+                className={`px-3 py-2 border  font-sans font-semibold text-sm ${
+                  isFinPeople === true ? "" : "hidden"
+                }`}
+              >
+                Name
+              </th>
+              <th
+                scope="col"
+                className="px-3 py-2 border  font-sans font-semibold text-sm"
+              >
                 Company
               </th>
-              <th scope="col" className="px-6 py-3 border">
+              <th
+                scope="col"
+                className="px-3 py-2 border  font-sans font-semibold text-sm"
+              >
                 Fund Stage
               </th>
-              <th scope="col" className="px-6 py-3 border">
+              <th
+                scope="col"
+                className="px-3 py-2 border  font-sans font-semibold text-sm"
+              >
                 Investor Type
               </th>
-              <th scope="col" className="px-6 py-3 border">
+              <th
+                scope="col"
+                className="px-3 py-2 border  font-sans font-semibold text-sm"
+              >
                 Fund Focus
               </th>
-              <th scope="col" className="px-6 py-3 border">
+              <th
+                scope="col"
+                className={`px-3 py-2 border  font-sans font-semibold text-sm ${
+                  isFinPeople !== true ? "" : "hidden"
+                }`}
+              >
                 Last Funding Round Amount
               </th>
-              <th scope="col" className="px-6 py-3 border">
+              <th
+                scope="col"
+                className={`px-3 py-2 border  font-sans font-semibold text-sm ${
+                  isFinPeople !== true ? "" : "hidden"
+                }`}
+              >
                 No. of Contacts
+              </th>
+              <th
+                scope="col"
+                className={`px-3 py-2 border  font-sans font-semibold text-sm ${
+                  isFinPeople === true ? "" : "hidden"
+                }`}
+              >
+                Network
+              </th>
+              <th
+                scope="col"
+                className={`px-3 py-2 border  font-sans font-semibold text-sm ${
+                  isFinPeople === true ? "" : "hidden"
+                }`}
+              >
+                Contact Information
               </th>
             </tr>
           </thead>
           <tbody>
-            {[...Array(10)].map((item, i) => {
+            {[...Array(20)].map((item, i) => {
               return (
                 <tr key={i} className="bg-white border-b  hover:bg-gray-50 ">
                   <td className="w-4 p-4 border">
@@ -120,24 +171,78 @@ const RightSide = () => {
                       </label>
                     </div>
                   </td>
-                  <th
-                    scope="row"
-                    className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap"
+                  <td
+                    className={`px-3 py-2 border ${
+                      isFinPeople === true ? "" : "hidden"
+                    }`}
                   >
-                    <img
-                      className="w-10 h-10 rounded-full"
-                      src="/Frame 19.png"
-                      alt="Jese image"
-                    />
-                    <div className="pl-3">
-                      <div className="text-base font-semibold">Neil Sims</div>
+                    <div className="flex items-center">
+                      <img
+                        className="w-10 h-10 rounded-full"
+                        src="/people1.png"
+                        alt="Robert Fox"
+                      />
+                      <div className="pl-3">
+                        <div className="text-sm font-normal">Robert Fox</div>
+                        <div className="flex items-center gap-1">
+                        <span className="flex w-2 h-2 bg-green-500 rounded-full" />
+                          <span className="opacity-50 text-[12px] font-thin">
+                            In Campaign
+                          </span>
+                        </div>
+                      </div>
                     </div>
-                  </th>
-                  <td className="px-6 py-4 border">Series D</td>
-                  <td className="px-6 py-4 border">Venture Capitalists</td>
-                  <td className="px-6 py-4 border"> E-Commerce</td>
-                  <td className="px-6 py-4 border">$105,000</td>
-                  <td className="px-6 py-4 border">$105,000</td>
+                  </td>
+
+                  <td className="flex px-3 py-2">
+                    <div className="flex items-center">
+                      <img
+                        className="w-10 h-10 rounded-full"
+                        src="/Frame 19.png"
+                        alt="Robert Fox"
+                      />
+                      <div className="pl-3">
+                        <div className="text-sm font-normal">
+                          Wonka Industries
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td className="px-3 py-2 border">Series D</td>
+                  <td className="px-3 py-2 border">Venture Capitalists</td>
+                  <td className="px-3 py-2 border"> E-Commerce</td>
+                  <td
+                    className={`px-3 py-2 border ${
+                      isFinPeople !== true ? "" : "hidden"
+                    }`}
+                  >
+                    $105,000
+                  </td>
+                  <td
+                    className={`px-3 py-2 border ${
+                      isFinPeople !== true ? "" : "hidden"
+                    }`}
+                  >
+                    $105,000
+                  </td>
+                  <td
+                    className={`px-3 py-2 border ${
+                      isFinPeople === true ? "" : "hidden"
+                    }`}
+                  >
+                    1st Party Connection
+                  </td>
+                  <td
+                    className={`px-3 py-2 border ${
+                      isFinPeople === true ? "" : "hidden"
+                    }`}
+                  >
+                    <div className="flex gap-[24px]">
+                      <img src="/twitter.svg" alt="" />
+                      <img src="linkedin.svg" alt="" />
+                      <img src="/gmail.svg" alt="" />
+                    </div>
+                  </td>
                 </tr>
               );
             })}
