@@ -42,3 +42,29 @@ body {
   background-color: #f9f9fa;
   overflow-x: hidden;
 }
+
+.select {
+background-color: #fff !important;
+}
+.input {
+background-color: #fff !important;
+}
+
+/* .modal {
+  width: 400px;
+  margin: auto;
+  padding: 1rem;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  width: 80%;
+} */
