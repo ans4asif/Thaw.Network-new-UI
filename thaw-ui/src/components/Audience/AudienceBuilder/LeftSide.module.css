@@ -22,11 +22,11 @@
 }
 .input_range input[type="range" i]::-webkit-slider-thumb {
   box-shadow: 0px 0px 3px #fffcfc !important;
-  border: 2px solid #2497e3 !important;
+  border: 3px solid #2497e3 !important;
   height: 18px;
   width: 18px;
   border-radius: 15px;
-  background: #a1d0ff;
+  background: #fff;
   cursor: pointer;
   -webkit-appearance: none !important;
   margin-top: -7.5px !important;
@@ -90,3 +90,4 @@
 .input_range input[type="range" i]:focus::-ms-fill-upper {
   background: #e3e3e3;
 }
+

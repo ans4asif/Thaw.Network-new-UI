@@ -6,33 +6,42 @@ import LeftSide from "./LeftSide";
 import RightSide from "./RightSide";
 
 const AudienceBuilder = () => {
-    
+    const [isFinPeople, setIsFinPeople] = useState(false)
   return (
-    <section className="p-[32px] ">
+    <section className="p-[32px] font-general-sans-semibold  text-[#1C1C1E]">
       {/* Page Heading */}
       <div className="my-5 cursor-pointer">
-        <h3 className="text-lg font-semibold">Audience Builder</h3>
-        <p className="text-sm text-[#3A383E]">Build your own Audience</p>
+        <h3 className="text-[22px]
+        text-[#1C1C1E] font-semibold font-general-sans-semibold">Audience Builder</h3>
+        <p className="text-sm text-[#3A383E] font-general-sans-semibold">Build your own Audience</p>
       </div>
       <div className="flex gap-5 my-5 cursor-pointer">
-        <div className="flex gap-2">
+        <div
+        onClick={() => setIsFinPeople(false)}
+        className={`flex gap-2 ${
+          isFinPeople === false && "border-b-2 border-black"
+        }`}>
           <Buildings />
-          <h4>Find Companies</h4>
+          <h4 className=" text-[#1C1C1E]">Find Companies</h4>
         </div>
-        <div className="flex gap-2">
+        <div 
+        onClick={() => setIsFinPeople(true)}
+        className={`flex gap-2 ${
+          isFinPeople === true && "border-b-2 border-black"
+        }`}>
           <Peoples />
-          <h4>Find Companies</h4>
+          <h4 className=" text-[#1C1C1E]">Find People</h4>
         </div>
       </div>
       <hr className="my-5"/>
-      <div className="grid grid-cols-12">
+      <div className="grid grid-cols-12 bg-white text-black">
         {/* Left Side */}
         <div className="col-span-2">
-          <LeftSide />
+          <LeftSide isFinPeople={isFinPeople}/>
         </div>
         {/* Right Side */}
         <div className="col-span-10">
-          <RightSide />
+          <RightSide isFinPeople={ isFinPeople } />
         </div>
       </div>
     </section>
