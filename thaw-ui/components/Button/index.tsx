@@ -4,6 +4,7 @@ interface Button {
   children: React.ReactNode;
   type: string;
   icon?: string;
+  onClick:()=>void;
 }
 
 const Button = ({ children, type, icon,...rest }: Button) => {
