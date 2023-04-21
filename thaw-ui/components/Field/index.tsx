@@ -32,9 +32,9 @@ const Field = ({ type, error, placeholder = 'Type here', label, name, value, onC
           {type == 'chooseFile' && <span className='pl-1 text-[#A5A3AE]'>(PDF Only)</span>}
         </label>
         )}
-        {type == 'text' && (
+        {type == 'text' || type == 'password' && (
           <input
-            type='text'
+            type={type}
             name={name}
             value={value}
             placeholder={placeholder}

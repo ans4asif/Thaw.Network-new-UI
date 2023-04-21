@@ -12,9 +12,10 @@ interface Props {
     downloading: boolean;
     password_protection: boolean;
     password?: string;
+    onSubmit:()=>void;
   };
 }
-const PitchDeckForm = ({ hide, values }: Props) => {
+const PitchDeckForm = ({ hide, values ,onSubmit=()=>{}}: Props) => {
   const [value, setValues] = useState({
     deck_name: values?.deck_name ?? '',
     file: values?.file ?? null,
@@ -35,9 +36,13 @@ const PitchDeckForm = ({ hide, values }: Props) => {
 
   }
   console.log({value})
+  const handleSubmit=(e:any)=>{
+    e.preventDefault();
+    onSubmit(values)
+  }
   return (
     <div className='py-8'>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className='max-w-[1072px] pl-[184px]'>
           <div className='mb-3'>
             <Field
@@ -106,7 +111,7 @@ const PitchDeckForm = ({ hide, values }: Props) => {
             {value.password_protection && (
               <div className='py-4'>
                 <Field
-                  type='text'
+                  type='password'
                   name='password'
                   label='Password'
                   value=''
