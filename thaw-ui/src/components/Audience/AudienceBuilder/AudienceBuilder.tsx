@@ -19,18 +19,18 @@ const AudienceBuilder = () => {
         <div
         onClick={() => setIsFinPeople(false)}
         className={`flex gap-2 ${
-          isFinPeople === false && "border-b-2 border-black"
+          isFinPeople === false ? "border-b-2 border-black text-black" : "text-gray-300"
         }`}>
           <Buildings />
-          <h4 className=" text-[#1C1C1E]">Find Companies</h4>
+          <h4 className="">Find Companies</h4>
         </div>
         <div 
         onClick={() => setIsFinPeople(true)}
         className={`flex gap-2 ${
-          isFinPeople === true && "border-b-2 border-black"
+          isFinPeople === true  ? "border-b-2 border-black text-black" : "text-gray-300"
         }`}>
           <Peoples />
-          <h4 className=" text-[#1C1C1E]">Find People</h4>
+          <h4 className="">Find People</h4>
         </div>
       </div>
       <hr className="my-5"/>
