@@ -61,9 +61,7 @@ const LeftSide: React.FunctionComponent<props> = ({ isFinPeople }) => {
             <option value={"Tiny Tomato"}>Tiny Tomato</option>
           </select>
         </div>
-        <div
-          className={` flex-col ${isFinPeople === true ? "flex" : "hidden"}`}
-        >
+        <div className={` flex-col ${isFinPeople === true ? "flex" : "hidden"}`}>
           <label className="label">
             <span className="label-text  text-black font-semibold">
               Stage Preferences
@@ -83,13 +81,9 @@ const LeftSide: React.FunctionComponent<props> = ({ isFinPeople }) => {
             <option value={"Tiny Tomato"}>Tiny Tomato</option>
           </select>
         </div>
-        <div
-          className={` flex-col ${isFinPeople === true ? "flex" : "hidden"}`}
-        >
+        <div className={` flex-col ${isFinPeople === true ? "flex" : "hidden"}`}>
           <label className="label">
-            <span className="label-text  text-black font-semibold">
-              Fund Focus
-            </span>
+            <span className="label-text  text-black font-semibold">Fund Focus</span>
           </label>
           <select
             className="select select-bordered select-sm w-full max-w-xs font-normal"
@@ -105,9 +99,7 @@ const LeftSide: React.FunctionComponent<props> = ({ isFinPeople }) => {
             <option value={"Tiny Tomato"}>Tiny Tomato</option>
           </select>
         </div>
-        <div
-          className={` flex-col ${isFinPeople !== true ? "flex" : "hidden"}`}
-        >
+        <div className={` flex-col ${isFinPeople !== true ? "flex" : "hidden"}`}>
           <label className="label">
             <span className="label-text  text-black font-semibold">
               Investment Stage
@@ -127,9 +119,7 @@ const LeftSide: React.FunctionComponent<props> = ({ isFinPeople }) => {
             <option value={"Tiny Tomato"}>Tiny Tomato</option>
           </select>
         </div>
-        <div
-          className={` flex-col ${isFinPeople !== true ? "flex" : "hidden"}`}
-        >
+        <div className={` flex-col ${isFinPeople !== true ? "flex" : "hidden"}`}>
           <label className="label">
             <span className="label-text  text-black font-semibold">
               Industry Focus
@@ -220,9 +210,7 @@ const LeftSide: React.FunctionComponent<props> = ({ isFinPeople }) => {
             <option value={"Tiny Tomato"}>Tiny Tomato</option>
           </select>
         </div>{" "}
-        <div
-          className={` flex-col ${isFinPeople === true ? "flex" : "hidden"}`}
-        >
+        <div className="flex flex-col">
           <label className="label">
             <span className="label-text font-semibold text-black">
               Job Level
@@ -316,19 +304,19 @@ const LeftSide: React.FunctionComponent<props> = ({ isFinPeople }) => {
           className={` flex-col ${isFinPeople === true ? "flex" : "hidden"}`}
         >
           <div className="flex flex-col  gap-2">
-            <label className="flex items-center gap-5 px-1 py-2 cursor-pointer font-semibold">
+            <label className="flex items-center gap-5 px-1 py-2 cursor-pointer">
               <input type="checkbox" className="checkbox" />
               <span className=" text-[14px] text-blacklabel-text">
                 Has Email
               </span>
             </label>
-            <label className="flex items-center gap-5 px-1 py-2 cursor-pointer font-semibold">
+            <label className="flex items-center gap-5 px-1 py-2 cursor-pointer">
               <input type="checkbox" className="checkbox" />
               <span className=" text-[14px] text-blacklabel-text">
                 Has LinkedIn
               </span>
             </label>
-            <label className="flex items-center gap-5 px-1 py-2 cursor-pointer font-semibold">
+            <label className="flex items-center gap-5 px-1 py-2 cursor-pointer">
               <input type="checkbox" className="checkbox" />
               <span className=" text-[14px] text-blacklabel-text">
                 Has Twitter
