@@ -15,10 +15,12 @@ import chartIcon from '../../../assets/chart.svg';
 import editIcon from '../../../assets/edit.svg';
 import deleteIcon from '../../../assets/delete.svg';
 import SecondaryTable from '../../../components/Tables/secondaryTable';
+import DashboardCard from '../../../components/Dashboard/DashboardCard';
+import { DashboardCardList } from '../../../components/Dashboard/DashboardCardList';
 const PitchDeck = () => {
   const [showModal, setShowModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
-  const [view,setView]=useState('pitch_deckj')
+  const [view, setView] = useState('pitch_deck');
   const [pitchDecks, setPitchDecks] = useState([
     {
       id: 1,
@@ -41,11 +43,39 @@ const PitchDeck = () => {
       last_modified: 'May 24,2023',
       created_by: 'Robert Fox',
     },
+    {
+      id: 4,
+      name: 'John doe',
+      created_on: 'May 21,2023',
+      last_modified: 'May 24,2023',
+      created_by: 'Robert Fox',
+    },
+    {
+      id: 5,
+      name: 'John doe',
+      created_on: 'May 21,2023',
+      last_modified: 'May 24,2023',
+      created_by: 'Robert Fox',
+    },
+    {
+      id: 6,
+      name: 'John doe',
+      created_on: 'May 21,2023',
+      last_modified: 'May 24,2023',
+      created_by: 'Robert Fox',
+    },
   ]);
   const [menuItems] = useState([
     { id: 1, name: 'View Pitch Deck', icon: <Image src={eyeIcon} alt='icon' />, onClick: () => {} },
     { id: 2, name: 'Copy Pitch Deck link', icon: <Image src={linkIcon} alt='icon' />, onClick: () => {} },
-    { id: 3, name: 'Pitch Deck Performance', icon: <Image src={chartIcon} alt='icon' />, onClick: () => {} },
+    {
+      id: 3,
+      name: 'Pitch Deck Performance',
+      icon: <Image src={chartIcon} alt='icon' />,
+      onClick: () => {
+        setView('pitch_deck_performance');
+      },
+    },
     { id: 2, name: 'Edit Pitch Deck', icon: <Image src={editIcon} alt='icon' />, onClick: () => {}, showBorder: true },
     {
       id: 2,
@@ -99,26 +129,39 @@ const PitchDeck = () => {
           </div>
         ) : (
           <div className='mt-5'>
-            {view=='pitch_deck' ? (
+            {view == 'pitch_deck' ? (
               <>
-                  <div className='bg-white w-full max-h-[70px]'>
+                <div className='bg-white w-full max-h-[70px]'>
                   <div className='py-2 pl-3 max-w-[275px]'>
                     <Field
-                    type='search'
-                    label=''
-                    name='search_text'
-                    placeholder='Search...'
-                    onChange={()=>{}}
-                    value={''}
+                      type='search'
+                      label=''
+                      name='search_text'
+                      placeholder='search pitch decks'
+                      onChange={() => {}}
+                      value={''}
                     />
                   </div>
                 </div>
                 <Table items={pitchDecks} cloumnNames={columnNames} actionBtns={actionBtns} />
-                </>
-            ):(
-              <SecondaryTable items={[]}/>
+              </>
+            ) : (
+              <>
+                <div className='flex items-center justify-between mt-4 pb-6'>
+                  {DashboardCardList.map((item) => (
+                    <DashboardCard
+                      key={item.title}
+                      title={item.title}
+                      total={item.total}
+                      compare={item.compare}
+                      percentage={item.percentage}
+                      negativeValue={item.negativeValue}
+                    />
+                  ))}
+                </div>
+                <SecondaryTable items={[]} />
+              </>
             )}
-      
           </div>
         )}
         {/* ========== */}
@@ -146,7 +189,7 @@ const PitchDeck = () => {
               <Button
                 type='secondary'
                 onClick={() => {
-                  setShowDeleteModal(false)
+                  setShowDeleteModal(false);
                 }}
               >
                 Cancel
@@ -154,7 +197,7 @@ const PitchDeck = () => {
               <Button
                 type='danger'
                 onClick={() => {
-                  setShowDeleteModal(false)
+                  setShowDeleteModal(false);
                 }}
               >
                 Delete

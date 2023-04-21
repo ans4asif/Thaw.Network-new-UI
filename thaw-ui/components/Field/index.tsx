@@ -32,25 +32,29 @@ const Field = ({ type, error, placeholder = 'Type here', label, name, value, onC
         )}
         {type == 'search' && (
           <>
-            <div className='flex items-center border border-[#CFCED4] rounded-[8px] px-4 py-2 input-bordered input-md'>
-              <svg
-                xmlns='http://www.w3.org/2000/svg'
-                viewBox='0 0 20 20'
-                fill='currentColor'
-                className='w-6 h-6 text-gray-400'
-              >
-                <path
-                  fill-rule='evenodd'
-                  d='M8.5 15a6.5 6.5 0 1 1 5.435-2.886l5.412 5.412a1 1 0 0 1-1.414 1.414l-5.412-5.412A6.472 6.472 0 0 1 8.5 15zm0-2a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9z'
-                  clip-rule='evenodd'
-                />
-              </svg>
+           <div className="relative mt-1">
+              <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                <svg
+                  className="w-5 h-5 text-gray-500 "
+                  aria-hidden="true"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                    clipRule="evenodd"
+                  ></path>
+                </svg>
+              </div>
               <input
-                className='bg-transparent ml-4 outline-none'
-                type='text'
+                type="text"
+                id="table-search"
+                className="block p-2 pl-10 text-sm text-black border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
+                placeholder={placeholder}
                 name={name}
                 value={value}
-                placeholder={placeholder}
                 onChange={(e: any) => {
                   console.log({ val: e?.target?.value });
                   onChange({ name, value: e?.target?.value });
