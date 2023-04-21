@@ -32,19 +32,22 @@ const Field = ({ type, error, placeholder = 'Type here', label, name, value, onC
           {type == 'chooseFile' && <span className='pl-1 text-[#A5A3AE]'>(PDF Only)</span>}
         </label>
         )}
-        {type == 'text' && (
+        {type == 'text' || type == 'password' && (
           <input
-            type='text'
+            type={type}
             name={name}
             value={value}
             placeholder={placeholder}
+            onChange={(e:any)=>{
+              console.log({val:e?.target?.value})
+              onChange({name,value:e?.target?.value})}}
             className={`input input-bordered input-md ${!!error && 'input-error'} w-full max-w-[365px] h-[40px]`}
           />
         )}
         {type == 'chooseFile' && (
           // <input type="file" className="file-input file-input-bordered w-full max-w-xs" accept='pdf'/>
           <div
-            className={`flex items-center justify-between bg-white border rounded-lg px-4 py-3 ${
+            className={`flex items-center justify-between bg-white border rounded-lg px-4 py-3 max-w-[365px] h-[40px] ${
               !!error && 'input-error'
             }`}
           >
@@ -69,9 +72,10 @@ const Field = ({ type, error, placeholder = 'Type here', label, name, value, onC
         )}
         {type == 'toggle' && (
           <>
-            <input type='checkbox' className='peer sr-only' checked={false} readOnly />
+            <input type='checkbox' className='peer sr-only' checked={!!value} readOnly
+             />
             <div
-              onClick={() => {}}
+             onClick={()=>{onChange({name,value:!value})}}
               className={`relative after:top-0.75 peer h-5 w-10 rounded-full  bg-[#BAB8C1]  after:absolute ${!!value? 'after:left-[13px]':'after:left-[5px]'} after:top-[4px] after:h-3 after:w-3 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-[#368FCF] peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-green-300`}
             ></div>
           </>
