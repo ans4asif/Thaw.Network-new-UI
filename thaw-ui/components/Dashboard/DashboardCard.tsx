@@ -7,11 +7,12 @@ interface Props {
     percentage: string;
     compare: string;
     negativeValue: boolean;
+    lg?:boolean;
 }
 
-const DashboardCard: React.FC<Props> = ({ title, total, percentage, compare, negativeValue }) => {
+const DashboardCard: React.FC<Props> = ({ title, total, percentage, compare, negativeValue,lg }) => {
     return (
-        <div className="px-6 py-4 w-[259px] h-[114px] shadow-[0_4px_12px_rgba(0,0,0,0.10)] rounded-lg bg-white">
+        <div className={`px-6 py-4 ${lg ? 'w-[325px]':'w-[259px]'} h-[114px] shadow-[0_4px_12px_rgba(0,0,0,0.10)] rounded-lg bg-white `}>
             <div className="font-general-sans-medium text-sm text-dashboard-text font-medium">{title}</div>
             <div className="flex items-center gap-2">
                 <p className="font-general-sans-medium text-3xl mt-2 text-dashboard-text font-medium">{total}</p>
@@ -30,7 +31,7 @@ const DashboardCard: React.FC<Props> = ({ title, total, percentage, compare, neg
                     </div>
                 </div>
             </div>
-            <div>vs Last month: {compare}</div>
+            <div>vs Last month: <strong>{compare}</strong></div>
         </div>
     );
 };

@@ -13,7 +13,6 @@ const Table = ({items,cloumnNames,actionBtns}:Props) => {
     {/* head */}
     <thead>
       <tr>
-        {/* <th></th> */}
         {cloumnNames?.map((itm)=>(
             <th className='rounded-none border-solid border border-[#E4E3E7]'>{itm}</th>
         ))}

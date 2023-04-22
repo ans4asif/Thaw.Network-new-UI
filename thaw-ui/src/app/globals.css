@@ -52,3 +52,30 @@ background-color: #fff !important;
 .deck-table tbody tr:hover > td{
   background-color: #F5FBFD !important ;
 }
+
+.performance-table thead th{
+  border:1px solid #E4E3E7
+
+}
+.performance-table tbody td{
+  border:1px solid #E4E3E7
+}
+.performance-table-holder::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.performance-table-holder::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+.performance-table-holder::-webkit-scrollbar-thumb {
+  background: #cbcbcc;
+  border-radius: 8px;
+}
+
+/* Handle on hover */
+.performance-table-holder::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

@@ -12,7 +12,7 @@ function Menu({ items }: Props) {
       </label>
       <ul
         tabIndex={0}
-        className={`dropdown-content menu p-2 min-w-[230px] shadow bg-base-100 rounded-box w-52`}
+        className={`dropdown-content menu mt-2 p-2 min-w-[230px] shadow bg-base-100 rounded-box w-52`}
       >
         {items?.map((itm) => (
           <li

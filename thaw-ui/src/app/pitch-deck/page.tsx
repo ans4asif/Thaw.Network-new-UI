@@ -16,11 +16,11 @@ import editIcon from '../../../assets/edit.svg';
 import deleteIcon from '../../../assets/delete.svg';
 import SecondaryTable from '../../../components/Tables/secondaryTable';
 import DashboardCard from '../../../components/Dashboard/DashboardCard';
-import { DashboardCardList } from '../../../components/Dashboard/DashboardCardList';
+import Dropdown from '../../../components/Dropdown/Dropdown';
 const PitchDeck = () => {
   const [showModal, setShowModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
-  const [view, setView] = useState('pitch_deck');
+  const [view, setView] = useState('pitch_deck0');
   const [pitchDecks, setPitchDecks] = useState([
     {
       id: 1,
@@ -88,25 +88,132 @@ const PitchDeck = () => {
       type: 'danger',
     },
   ]);
+  const [performanceCards, setPerformanceCards] = useState([
+    { title: 'Total Visits', total: '27', percentage: '+2.1%', negativeValue: false, compare: '21' },
+    { title: 'Views', total: '45.3 mins', percentage: '+2.1%', negativeValue: false, compare: '21' },
+    { title: 'Average Time Spent Viewing', total: '27', percentage: '+2.1%', negativeValue: false, compare: '21' },
+    { title: 'Downloaded', total: '27', percentage: '+2.1%', negativeValue: false, compare: '21' },
+  ]);
+  const [performanceData] = useState([
+    {
+      id: 1,
+      visitors: 'Robert Fox',
+      views_count: 21,
+      last_viewed: 'May 21,2023',
+      downloaded: true,
+      time_spend: '5.33',
+      viewed_slides: 12 / 12,
+    },
+    {
+      id: 2,
+      visitors: 'Robert Fox',
+      views_count: 21,
+      last_viewed: 'May 21,2023',
+      downloaded: true,
+      time_spend: '5.33',
+      viewed_slides: 12 / 12,
+    },
+    {
+      id: 3,
+      visitors: 'Robert Fox',
+      views_count: 21,
+      last_viewed: 'May 21,2023',
+      downloaded: false,
+      time_spend: '5.33',
+      viewed_slides: 12 / 12,
+    },
+    {
+      id: 4,
+      visitors: 'Robert Fox',
+      views_count: 21,
+      last_viewed: 'May 21,2023',
+      downloaded: false,
+      time_spend: '5.33',
+      viewed_slides: 12 / 12,
+    },
+    {
+      id: 4,
+      visitors: 'Robert Fox',
+      views_count: 21,
+      last_viewed: 'May 21,2023',
+      downloaded: false,
+      time_spend: '5.33',
+      viewed_slides: 12 / 12,
+    },
+    {
+      id: 4,
+      visitors: 'Robert Fox',
+      views_count: 21,
+      last_viewed: 'May 21,2023',
+      downloaded: false,
+      time_spend: '5.33',
+      viewed_slides: 12 / 12,
+    },
+    {
+      id: 4,
+      visitors: 'Robert Fox',
+      views_count: 21,
+      last_viewed: 'May 21,2023',
+      downloaded: false,
+      time_spend: '5.33',
+      viewed_slides: 12 / 12,
+    },
+    {
+      id: 4,
+      visitors: 'Robert Fox',
+      views_count: 21,
+      last_viewed: 'May 21,2023',
+      downloaded: false,
+      time_spend: '5.33',
+      viewed_slides: 12 / 12,
+    },
+  ]);
   const [columnNames] = useState(['Pitch Deck Name', 'Created On', 'Last Modified', 'Created By']);
+  const [performanceColumnNames] = useState([
+    'Visitor',
+    'Views Count',
+    'Last Viewed On',
+    'Downloaded',
+    'Time Spend',
+    'Viewed Slides',
+  ]);
   const handleSubmit = (val: any) => {
     console.log({ val });
   };
   const actionBtns = () => {
     return <Menu items={menuItems} />;
   };
+  const actionBtnsPerformance = () => {
+    const items=menuItems?.filter((itm)=>itm?.name!=='Pitch Deck Performance')
+    return <Menu items={items} />;
+  };
   return (
     <div className='container'>
       <div className='pt-8 pb-4'>
-        <PageTitle
-          title='Pitch Deck'
-          subTitle='Manage your Pitch Decks, or create a new Pitch Deck'
-          btnComponent={() => (
-            <Button type='primary' icon='plus' onClick={() => setShowModal(true)}>
-              New Pitch Deck
-            </Button>
-          )}
-        />
+        {view == 'pitch_deck' ? (
+          <PageTitle
+            title='Pitch Deck'
+            subTitle='Manage your Pitch Decks, or create a new Pitch Deck'
+            btnComponent={() => (
+              <Button type='primary' icon='plus' onClick={() => setShowModal(true)}>
+                New Pitch Deck
+              </Button>
+            )}
+          />
+        ) : (
+          <PageTitle
+            title='Pitch Deck Name'
+            subTitle='Track your Pitch Deck performance'
+            btnComponent={() => (
+              <div className='flex'>
+                <div>
+                  <Dropdown />
+                </div>
+                <span>{actionBtnsPerformance()}</span>
+              </div>
+            )}
+          />
+        )}
       </div>
       <section className='min-h-screen'>
         {/* no pitch deck */}
@@ -147,8 +254,8 @@ const PitchDeck = () => {
               </>
             ) : (
               <>
-                <div className='flex items-center justify-between mt-4 pb-6'>
-                  {DashboardCardList.map((item) => (
+                <div className='flex items-center justify-between mt-4 pb-6 gap-4'>
+                  {performanceCards.map((item) => (
                     <DashboardCard
                       key={item.title}
                       title={item.title}
@@ -156,10 +263,26 @@ const PitchDeck = () => {
                       compare={item.compare}
                       percentage={item.percentage}
                       negativeValue={item.negativeValue}
+                      lg
                     />
                   ))}
                 </div>
-                <SecondaryTable items={[]} />
+                {/* ////////////////// */}
+                <div className='p-4'>
+                  <div className='bg-white w-full max-h-[70px] flex items-center justify-between'>
+                    <div className='py-4 px-3  max-w-[275px]'>
+                      <h2 className='text-[#1C1C1E] not-italic font-general-sans-regular font-medium text-[16px]'>
+                        Visitor Activities
+                      </h2>
+                    </div>
+                    <div className='mr-2'>
+                      <Button onClick={() => {}} type='' disabled={true}>
+                        Build Audience
+                      </Button>
+                    </div>
+                  </div>
+                  <SecondaryTable items={performanceData} columnNames={performanceColumnNames} />
+                </div>
               </>
             )}
           </div>
