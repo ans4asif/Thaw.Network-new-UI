@@ -20,7 +20,7 @@ import Dropdown from '../../../components/Dropdown/Dropdown';
 const PitchDeck = () => {
   const [showModal, setShowModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
-  const [view, setView] = useState('pitch_deck0');
+  const [view, setView] = useState('pitch_deck');
   const [pitchDecks, setPitchDecks] = useState([
     {
       id: 1,
@@ -204,6 +204,7 @@ const PitchDeck = () => {
           <PageTitle
             title='Pitch Deck Name'
             subTitle='Track your Pitch Deck performance'
+            handleBackIcon={()=>{setView('pitch_deck')}}
             btnComponent={() => (
               <div className='flex'>
                 <div>
