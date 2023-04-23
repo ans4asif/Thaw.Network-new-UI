@@ -122,7 +122,9 @@ const CreateCampaign = () => {
           {connectCheck && (
             <Connect onRequiredRadioChange={setRequiredRadioChecked} />
           )}
-          {outReachCheck && <OutReach />}
+          {outReachCheck && (
+            <OutReach onRequiredRadioChange={setRequiredRadioChecked} />
+          )}
 
           <div className="modal-action ">
             <label htmlFor="create-campaign">
