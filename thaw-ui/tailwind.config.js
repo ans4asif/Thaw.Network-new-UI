@@ -31,6 +31,18 @@ module.exports = {
         "green-text": "#306049",
         "red-text": "#99202B",
         orange: "#D14814",
+        "danger": "#D14814",
+        "red": "#CC2B39",
+        "purple": {
+            200: "#D8D3DF",
+            800: "#372B49"
+        },
+        grey: "#3A383E",
+        grey: {
+            200: "#E4E3E7",
+            700: "#74717C"
+        },
+        "background": "#F9F9FA"
       },
     },
   },
