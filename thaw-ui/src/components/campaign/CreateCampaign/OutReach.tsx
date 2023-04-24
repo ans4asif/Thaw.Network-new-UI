@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import LinkStageCampaigns from "./LinkStageCampaigns";
 
-const OutReach = () => {
+const OutReach = ({ onRequiredRadioChange }: any) => {
   const [linkedEvenInviteCheck, setLinkedEvenInviteCheck] = useState(false);
   const [message, setMessage] = useState("");
 
@@ -14,6 +14,16 @@ const OutReach = () => {
     setLinkedEvenInviteCheck(targetName === "linked-invitation");
     setLinkedMsg(targetName === "linked-msg");
     setTwitterMsgCheck(targetName === "twitter-msg");
+
+    if (
+      targetName === "linked-invitation" ||
+      targetName === "linked-msg" ||
+      targetName === "twitter-msg"
+    ) {
+      onRequiredRadioChange(true);
+    } else {
+      onRequiredRadioChange(false);
+    }
   };
 
   const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {

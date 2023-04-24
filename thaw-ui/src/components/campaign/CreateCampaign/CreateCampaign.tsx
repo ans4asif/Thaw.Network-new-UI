@@ -5,6 +5,8 @@ import { RxCross1 } from "react-icons/rx";
 import WarmUp from "./WarmUp";
 import Connect from "./Connect";
 import OutReach from "./OutReach";
+import { toast } from "react-hot-toast";
+import Link from "next/link";
 
 const CreateCampaign = () => {
   const [warmUpCheck, setWarmUpCheck] = useState(false);
@@ -25,6 +27,10 @@ const CreateCampaign = () => {
     setPitchDeckCheck(targetName === "pitch-deck");
     setScheduleMeetingCheck(targetName === "schedule-meeting");
     setInvestorOnboardingCheck(targetName === "investor-onboarding");
+  };
+
+  const handleCreate = () => {
+    toast.success("Campaign created.");
   };
 
   return (
@@ -122,7 +128,9 @@ const CreateCampaign = () => {
           {connectCheck && (
             <Connect onRequiredRadioChange={setRequiredRadioChecked} />
           )}
-          {outReachCheck && <OutReach />}
+          {outReachCheck && (
+            <OutReach onRequiredRadioChange={setRequiredRadioChecked} />
+          )}
 
           <div className="modal-action ">
             <label htmlFor="create-campaign">
@@ -136,9 +144,11 @@ const CreateCampaign = () => {
             >
               Cancel
             </label>
+
             <button
               disabled={!requiredRadioChecked}
               className="btn normal-case bg-[#D14814]"
+              onClick={handleCreate}
             >
               Create
             </button>
