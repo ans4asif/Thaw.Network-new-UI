@@ -2,6 +2,8 @@ import React from "react";
 import { AiOutlinePlus } from "react-icons/ai";
 import { BsThreeDotsVertical } from "react-icons/bs";
 
+import clsx from "clsx";
+
 const CampaignsKanban = () => {
   const campaigns = [
     {
@@ -78,13 +80,13 @@ const CampaignsKanban = () => {
           name: "John M.",
         },
         {
-          status: "Coming Soon",
+          status: "coming soon",
           campaign_type: "Twitter Auto Responder AI",
           audience: "Audience name",
           name: "John M.",
         },
         {
-          status: "Coming Soon",
+          status: "coming soon",
           campaign_type: "Email Autoresponder AI",
           audience: "Audience name",
           name: "John M.",
@@ -96,7 +98,7 @@ const CampaignsKanban = () => {
           name: "John M.",
         },
         {
-          status: "Coming Soon",
+          status: "coming soon",
           campaign_type: "LinkedIn Responder Message AI",
           audience: "Audience name",
           name: "John M.",
@@ -198,6 +200,10 @@ const CampaignsKanban = () => {
     },
   ];
 
+  const statusChip = ({ value }: any) => {
+    return <CustomChip label={value} />;
+  };
+
   return (
     <div className="">
       {/* Header */}
@@ -257,7 +263,9 @@ const CampaignsKanban = () => {
                     <div className="card w-[196px] bg-white border border-[##E4E3E7] mb-2">
                       <div className="p-3">
                         <div className="flex items-center justify-between">
-                          <p className="uppercase">{data.status}</p>
+                          <div className="uppercase">
+                            {statusChip({ value: data.status })}
+                          </div>
                           <BsThreeDotsVertical />
                         </div>
                         <p>{data.campaign_type}</p>
@@ -271,6 +279,31 @@ const CampaignsKanban = () => {
             </div>
           );
         })}
+      </div>
+    </div>
+  );
+};
+
+export const CustomChip = ({ label }: any) => {
+  const getColors = (status: any) => {
+    switch (status) {
+      case "Unpublished":
+        return "bg-[#FFEEE1] text-[#B53808]";
+      case "Published":
+        return "bg-[#DFFAE8] text-[#306049]";
+      case "coming soon":
+        return "bg-[#F6F5F8] text-[#4A3A61]";
+    }
+  };
+  return (
+    <div className="flex justify-center items-center">
+      <div
+        className={clsx(
+          getColors(label),
+          "py-[4px] rounded-3xl font-semibold px-3 text-center"
+        )}
+      >
+        {label}
       </div>
     </div>
   );
