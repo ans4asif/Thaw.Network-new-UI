@@ -20,6 +20,7 @@ import Dropdown from '../../../components/Dropdown/Dropdown';
 const PitchDeck = () => {
   const [showModal, setShowModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [showEdit, setShowEdit] = useState(false);
   const [view, setView] = useState('pitch_deck');
   const [pitchDecks, setPitchDecks] = useState([
     {
@@ -76,7 +77,10 @@ const PitchDeck = () => {
         setView('pitch_deck_performance');
       },
     },
-    { id: 2, name: 'Edit Pitch Deck', icon: <Image src={editIcon} alt='icon' />, onClick: () => {}, showBorder: true },
+    { id: 2, name: 'Edit Pitch Deck', icon: <Image src={editIcon} alt='icon' />, onClick: () => {
+      setShowEdit(true)
+      setShowModal(true)
+    }, showBorder: true },
     {
       id: 2,
       name: 'Delete Pitch Deck',
@@ -195,7 +199,10 @@ const PitchDeck = () => {
             title='Pitch Deck'
             subTitle='Manage your Pitch Decks, or create a new Pitch Deck'
             btnComponent={() => (
-              <Button type='primary' icon='plus' onClick={() => setShowModal(true)}>
+              <Button type='primary' icon='plus' onClick={() => {setShowModal(true)
+                setShowEdit(true)
+
+              }}>
                 New Pitch Deck
               </Button>
             )}
@@ -294,7 +301,7 @@ const PitchDeck = () => {
           hideOnOutsideClick={true}
           hide={() => setShowModal(false)}
           fullWidth
-          title='Pitch Deck'
+          title={showEdit? 'Edit Pitch Deck':'Pitch Deck'}
         >
           <PitchDeckForm hide={() => setShowModal(false)} onSubmit={handleSubmit} />
         </Modal>

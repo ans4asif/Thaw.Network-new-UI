@@ -122,7 +122,7 @@ const PitchDeckForm = ({ hide, values ,onSubmit=()=>{}}: Props) => {
             )}
           </div>
         </div>
-        <div className='flex justify-end items-center gap-5'>
+        <div className='flex justify-end items-center gap-5 absolute bottom-4 right-5'>
           <Button
             type='secondary'
             onClick={() => {
