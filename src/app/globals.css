@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .header-menu > .btn {
+    @apply !h-7 !min-h-[28px] !border !border-primary-border;
+  }
+}
+
+@font-face {
+  font-family: 'GeneralSans-Regular';
+  src: url('/../../public/fonts/GeneralSans-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GeneralSans-Medium';
+  src: url('/../../public/fonts/GeneralSans-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GeneralSans-Semibold';
+  src: url('/../../public/GeneralSans-Semibold.woff2') format('woff2');
+  font-weight: 600;
+  font-display: swap;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+html,
+body {
+  background-color: #f9f9fa;
+  overflow-x: hidden;
+}
+
+.select {
+background-color: #fff !important;
+}
+.input {
+background-color: #fff !important;
+}
+.deck-table tbody tr:hover > td{
+  background-color: #F5FBFD !important ;
+}
+
+.performance-table thead th{
+  border:1px solid #E4E3E7
+
+}
+.performance-table tbody td{
+  border:1px solid #E4E3E7
+}
+.performance-table-holder::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.performance-table-holder::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+.performance-table-holder::-webkit-scrollbar-thumb {
+  background: #cbcbcc;
+  border-radius: 8px;
+}
+
+/* Handle on hover */
+.performance-table-holder::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
