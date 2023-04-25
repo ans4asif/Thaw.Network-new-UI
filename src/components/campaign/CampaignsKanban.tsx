@@ -1,8 +1,6 @@
 import React from "react";
 import { AiOutlinePlus } from "react-icons/ai";
 import { BsThreeDotsVertical } from "react-icons/bs";
-import { RiBarChartBoxLine } from "react-icons/ri";
-import { FiEdit3 } from "react-icons/fi";
 
 import clsx from "clsx";
 
@@ -206,24 +204,8 @@ const CampaignsKanban = () => {
     return <CustomChip label={value} />;
   };
 
-  const dynamicColor = [
-    "#43B6E5",
-    "#2463AC",
-    "#FBAB72",
-    "#FF8B38",
-    "#EE5920",
-    "#B53808",
-  ];
-
-  const colors = dynamicColor.map((color) => ({
-    borderColor: color,
-  }));
-  const bgColors = dynamicColor.map((color) => ({
-    backgroundColor: color,
-  }));
-
   return (
-    <div className="mr-8">
+    <div className="">
       {/* Header */}
 
       <div className="my-5 flex items-center justify-between">
@@ -257,7 +239,7 @@ const CampaignsKanban = () => {
               </select>
             </label>
           </div>
-          <div className="">
+          <div className=" pr-12">
             <label
               htmlFor="create-campaign"
               className="btn mt-4 normal-case text-base bg-[#D14814]"
@@ -271,55 +253,20 @@ const CampaignsKanban = () => {
 
       {/*  */}
       <div className="grid grid-cols-6 mt-8 gap-[20px]">
-        {campaigns.map((item, i) => {
+        {campaigns.map((item) => {
           return (
-            <div key={i} className="font-medium">
-              <div
-                className=" border-b-4 p-2 mb-4 flex items-center justify-between"
-                style={colors[i]}
-              >
-                <div>{item.stage}</div>
-                <div
-                  className="px-[10px] py-[3px]  rounded-3xl text-[14px] text-white font-medium"
-                  style={bgColors[i]}
-                >
-                  {item.campaign.length}
-                </div>
-              </div>
-              <div className="border border-[##E4E3E7] p-[5px] rounded-lg">
-                {item.campaign.map((data, i) => {
+            <div className="font-medium">
+              <div>{item.stage}</div>
+              <div className="border border-[##E4E3E7] p-2 rounded-lg">
+                {item.campaign.map((data) => {
                   return (
-                    <div
-                      key={i}
-                      className="card w-[196px] bg-white border border-[##E4E3E7] mb-2"
-                    >
+                    <div className="card w-[196px] bg-white border border-[##E4E3E7] mb-2">
                       <div className="p-3">
                         <div className="flex items-center justify-between">
                           <div className="uppercase">
                             {statusChip({ value: data.status })}
                           </div>
-                          <div className="dropdown dropdown-end">
-                            <label tabIndex={0} className="cursor-pointer">
-                              <BsThreeDotsVertical />
-                            </label>
-                            <ul
-                              tabIndex={0}
-                              className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-60"
-                            >
-                              <li>
-                                <a className="text-[#57555D] font-medium text-sm">
-                                  <FiEdit3 className="h-5 w-5" />
-                                  <span>Edit Campaign</span>
-                                </a>
-                              </li>
-                              <li>
-                                <a className="text-[#57555D] font-medium text-sm">
-                                  <RiBarChartBoxLine className="h-5 w-5" />
-                                  <span>Campaign Performance</span>
-                                </a>
-                              </li>
-                            </ul>
-                          </div>
+                          <BsThreeDotsVertical />
                         </div>
                         <p>{data.campaign_type}</p>
                         <p className="mb-2 text-[#918E9B]">{data.audience}</p>

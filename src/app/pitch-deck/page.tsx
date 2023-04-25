@@ -77,16 +77,10 @@ const PitchDeck = () => {
         setView('pitch_deck_performance');
       },
     },
-    {
-      id: 2,
-      name: 'Edit Pitch Deck',
-      icon: <Image src={editIcon} alt='icon' />,
-      onClick: () => {
-        setShowEdit(true);
-        setShowModal(true);
-      },
-      showBorder: true,
-    },
+    { id: 2, name: 'Edit Pitch Deck', icon: <Image src={editIcon} alt='icon' />, onClick: () => {
+      setShowEdit(true)
+      setShowModal(true)
+    }, showBorder: true },
     {
       id: 2,
       name: 'Delete Pitch Deck',
@@ -104,7 +98,7 @@ const PitchDeck = () => {
     { title: 'Average Time Spent Viewing', total: '27', percentage: '+2.1%', negativeValue: false, compare: '21' },
     { title: 'Downloaded', total: '27', percentage: '+2.1%', negativeValue: false, compare: '21' },
   ]);
-  const [performanceData, setPerformanceData] = useState([
+  const [performanceData] = useState([
     {
       id: 1,
       visitors: 'Robert Fox',
@@ -113,7 +107,6 @@ const PitchDeck = () => {
       downloaded: true,
       time_spend: '5.33',
       viewed_slides: 12 / 12,
-      checked: false,
     },
     {
       id: 2,
@@ -123,7 +116,6 @@ const PitchDeck = () => {
       downloaded: true,
       time_spend: '5.33',
       viewed_slides: 12 / 12,
-      checked: false,
     },
     {
       id: 3,
@@ -133,7 +125,6 @@ const PitchDeck = () => {
       downloaded: false,
       time_spend: '5.33',
       viewed_slides: 12 / 12,
-      checked: false,
     },
     {
       id: 4,
@@ -143,50 +134,44 @@ const PitchDeck = () => {
       downloaded: false,
       time_spend: '5.33',
       viewed_slides: 12 / 12,
-      checked: false,
     },
     {
-      id: 5,
+      id: 4,
       visitors: 'Robert Fox',
       views_count: 21,
       last_viewed: 'May 21,2023',
       downloaded: false,
       time_spend: '5.33',
       viewed_slides: 12 / 12,
-      checked: false,
     },
     {
-      id: 6,
+      id: 4,
       visitors: 'Robert Fox',
       views_count: 21,
       last_viewed: 'May 21,2023',
       downloaded: false,
       time_spend: '5.33',
       viewed_slides: 12 / 12,
-      checked: false,
     },
     {
-      id: 7,
+      id: 4,
       visitors: 'Robert Fox',
       views_count: 21,
       last_viewed: 'May 21,2023',
       downloaded: false,
       time_spend: '5.33',
       viewed_slides: 12 / 12,
-      checked: false,
     },
     {
-      id: 8,
+      id: 4,
       visitors: 'Robert Fox',
       views_count: 21,
       last_viewed: 'May 21,2023',
       downloaded: false,
       time_spend: '5.33',
       viewed_slides: 12 / 12,
-      checked: false,
     },
   ]);
-  const [buildAudience, setBuildAudience] = useState(!!performanceData?.filter((itm: any) => itm?.checked)[0]);
   const [columnNames] = useState(['Pitch Deck Name', 'Created On', 'Last Modified', 'Created By']);
   const [performanceColumnNames] = useState([
     'Visitor',
@@ -203,41 +188,8 @@ const PitchDeck = () => {
     return <Menu items={menuItems} />;
   };
   const actionBtnsPerformance = () => {
-    const items = menuItems?.filter((itm) => itm?.name !== 'Pitch Deck Performance');
+    const items=menuItems?.filter((itm)=>itm?.name!=='Pitch Deck Performance')
     return <Menu items={items} />;
-  };
-  const handlePerformanceCheck = ({ id, value,all_check,type }: any) => {
-    let a = performanceData;
-    if(all_check && type=='all'){
-      a = a?.map((itm: any) => {
-          let b = itm;
-          b.checked = true;
-          return b;
-      });
-    }else if(!all_check && type=='all'){
-      a = a?.map((itm: any) => {
-        let b = itm;
-        b.checked = false;
-        return b;
-    });
-    }else{
-    a = a?.map((itm: any) => {
-      if (itm?.id == id) {
-        let b = itm;
-        b.checked = value;
-        return b;
-      }
-
-      return itm;
-    });
-  }
-    const isBuildAudience = !!a?.filter((itm: any) => itm?.checked)[0];
-    if (isBuildAudience) {
-      setBuildAudience(true);
-    } else {
-      setBuildAudience(false);
-    }
-    setPerformanceData(a);
   };
   return (
     <div className='container'>
@@ -247,14 +199,10 @@ const PitchDeck = () => {
             title='Pitch Deck'
             subTitle='Manage your Pitch Decks, or create a new Pitch Deck'
             btnComponent={() => (
-              <Button
-                type='primary'
-                icon='plus'
-                onClick={() => {
-                  setShowModal(true);
-                  setShowEdit(true);
-                }}
-              >
+              <Button type='primary' icon='plus' onClick={() => {setShowModal(true)
+                setShowEdit(true)
+
+              }}>
                 New Pitch Deck
               </Button>
             )}
@@ -263,9 +211,7 @@ const PitchDeck = () => {
           <PageTitle
             title='Pitch Deck Name'
             subTitle='Track your Pitch Deck performance'
-            handleBackIcon={() => {
-              setView('pitch_deck');
-            }}
+            handleBackIcon={()=>{setView('pitch_deck')}}
             btnComponent={() => (
               <div className='flex'>
                 <div>
@@ -300,7 +246,6 @@ const PitchDeck = () => {
           <div className='mt-5'>
             {view == 'pitch_deck' ? (
               <>
-              <div className='px-5 overflow-hidden'>
                 <div className='bg-white w-full max-h-[70px]'>
                   <div className='py-2 pl-3 max-w-[275px]'>
                     <Field
@@ -314,7 +259,6 @@ const PitchDeck = () => {
                   </div>
                 </div>
                 <Table items={pitchDecks} cloumnNames={columnNames} actionBtns={actionBtns} />
-                </div>
               </>
             ) : (
               <>
@@ -340,20 +284,12 @@ const PitchDeck = () => {
                       </h2>
                     </div>
                     <div className='mr-2'>
-                      <Button
-                        onClick={() => {}}
-                        type={buildAudience ? 'primary' : ''}
-                        disabled={buildAudience ? false : true}
-                      >
+                      <Button onClick={() => {}} type='' disabled={true}>
                         Build Audience
                       </Button>
                     </div>
                   </div>
-                  <SecondaryTable
-                    items={performanceData}
-                    columnNames={performanceColumnNames}
-                    onChange={handlePerformanceCheck}
-                  />
+                  <SecondaryTable items={performanceData} columnNames={performanceColumnNames} />
                 </div>
               </>
             )}
@@ -365,7 +301,7 @@ const PitchDeck = () => {
           hideOnOutsideClick={true}
           hide={() => setShowModal(false)}
           fullWidth
-          title={showEdit ? 'Edit Pitch Deck' : 'Pitch Deck'}
+          title={showEdit? 'Edit Pitch Deck':'Pitch Deck'}
         >
           <PitchDeckForm hide={() => setShowModal(false)} onSubmit={handleSubmit} />
         </Modal>

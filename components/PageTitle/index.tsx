@@ -9,7 +9,7 @@ interface Props {
 }
 const PageTitle = ({ title, subTitle, btnComponent, handleBackIcon }: Props) => {
   return (
-    <div className='flex items-center justify-between pl-3'>
+    <div className='flex items-center justify-between'>
       <div className='flex items-center gap-4'>
         {handleBackIcon && (
           <div>
