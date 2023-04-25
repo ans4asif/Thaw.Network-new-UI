@@ -8,7 +8,7 @@ import CampaignsKanban from "@/components/campaign/CampaignsKanban";
 
 const Campaign = () => {
   return (
-    <div className="px-[32px] bg-[#F9F9FA] h-screen">
+    <div className="px-[32px] bg-[#F9F9FA]">
       {/* <EmptyState /> */}
       <CampaignsKanban />
 

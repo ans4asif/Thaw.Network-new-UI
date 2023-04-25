@@ -3,8 +3,13 @@ import React from 'react';
 interface Props {
   items: Array<any>;
   columnNames: Array<string>;
+  onChange:any;
 }
-const SecondaryTable = ({ items, columnNames }: Props) => {
+const SecondaryTable = ({ items, columnNames,onChange=()=>{} }: Props) => {
+
+  const handleChange=({id,value,all_check,type}:any)=>{
+    onChange({id,value,all_check,type})
+  }
   return (
     <div className='overflow-x-auto w-full max-h-[660px] performance-table-holder'>
     <table className='table w-full performance-table '>
@@ -13,7 +18,9 @@ const SecondaryTable = ({ items, columnNames }: Props) => {
           <tr>
             <th>
               <label>
-                <input type='checkbox' className='checkbox' />
+                <input type='checkbox' className='checkbox' onChange={(e:any)=>{
+                    handleChange({id:null,value:'',all_check:e?.target?.checked,type:'all'})
+                  }}/>
               </label>
             </th>
             {columnNames?.map((name) => (
@@ -23,11 +30,13 @@ const SecondaryTable = ({ items, columnNames }: Props) => {
         </thead>
         <tbody>
           {/* row 1 */}
-          {items?.map((itm) => (
+          {items?.map((itm:any) => (
             <tr>
               <th className='max-w-[52px]'>
                 <label>
-                  <input type='checkbox' className='checkbox' />
+                  <input type='checkbox' className='checkbox' checked={itm?.checked} onChange={(e:any)=>{
+                    handleChange({id:itm.id,value:e?.target?.checked,all_check:false,type:'single'})
+                  }} />
                 </label>
               </th>
               <td>
